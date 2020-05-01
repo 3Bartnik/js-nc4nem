@@ -162,11 +162,11 @@ p.text-muted {
 }
 .imgcrew{
     width: 16rem;
-    height: 16rem;
+    //height: 16rem;
     margin-right: auto;
     margin-bottom: 0.25rem;
     margin-left: auto;
-    border-radius: 50%;
+    //border-radius: 50%;
 
 }
 
@@ -240,8 +240,8 @@ height: 100vh;
 }
 .img-thumbnail {
     width: 200px;
-    height: 200px;
-    border-radius: 50%;
+    //height: 200px;
+    //border-radius: 50%;
 }
 .crew {
     display: inline;
@@ -271,3 +271,24 @@ height: 100vh;
     height: 330px;
     overflow: hidden;
 }
+.lgview {
+    width:100%;
+    border-radius: 5px;
+}
+@media only screen and (max-width:768px) {
+    #heightTreat { 
+      width:100%;
+      margin: 0em;
+      padding: 0em;
+    }
+    .smview {
+        width:25%;
+    }
+    .text-container h1 {
+      color:white;
+    }
+    .display-4 {
+        font-size: 1.5rem;
+    }
+}
+

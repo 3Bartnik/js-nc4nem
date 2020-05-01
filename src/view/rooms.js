@@ -27,10 +27,10 @@ export const rooms =() => {
                     <button class="btn btn-secondary btn-sm btn-hide"> Sprawdź dostępność pokoju </button> 
                     <div class="style-rounded">
                         <label for="start"> Planowana data przyjazdu:</label>
-                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="" max="" requred> 
+                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-05-05" requred> 
                         <div>
                             <label for="end"> Planowana data wyjazdu:  </label>
-                            <input type="date" id="inputDate2" value="dd.mm.rrrr" requred>
+                            <input type="date" id="inputDate2" value="dd.mm.rrrr" min="2020-04-27" requred>
                         </div>
                         <div id="showTime">
                             <button type="submit"> Zarezerwuj </button>
@@ -124,19 +124,19 @@ export const rooms =() => {
 
 $(document).ready(function(){
     $("#btn1").click(function(){
-        var room1 = document.getElementsByClassName("room1");
+        const room1 = document.getElementsByClassName("room1");
       $(room1).toggle(1000);
     });
     $("#btn2").click(function(){
-        var room2 = document.getElementsByClassName("room2");
+        const room2 = document.getElementsByClassName("room2");
       $(room2).toggle(1000);
     });
     $("#btn3").click(function(){
-        var room3 = document.getElementsByClassName("room3");
+        const room3 = document.getElementsByClassName("room3");
         $(room3).toggle(1000);
     });
     $("#btn4").click(function(){
-            var room4 = document.getElementsByClassName("room4");
+            const room4 = document.getElementsByClassName("room4");
         $(room4).toggle(1000);
     });
 });

@@ -10,23 +10,14 @@ export const home =() => {
         <div class="header-content">
             <div class="container">
                 <div class="row">
-                    <div class= "col-lg-12">
+                    <div class= "col-12">
                         <div class="text-container">
                             <h1> <strong>Jedynie i niepowtarzalne SPA, którego na długo nie zapomnisz </strong></h1>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-
-
-        <div class="row justify-content-start">
-            <div class="col-6 ">   
-            </div>
-            
-        </div>
-        
+        </div>      
     </div>
 </section>
 <section>
@@ -49,12 +40,12 @@ export const home =() => {
                             <div class="container no-padding">
                                 <h1 class="display-4"> Oferujemy niestandardowe rozwiązania dla naszych wyjątkowych klientów</h1>
                                 <p class="lead">Jeżeli szukasz standardowej oferty zabiegów, niestety musimy Cię zmartwić. U nas jej nie doświadczysz. </p>
-                                <p class="lead"> Jednakże zerknij proszę na naszą ofertę, gdyż może któryś z opcji Cię zaintryguje i zapragniesz jej doświadczyć osobiście. </p>
+                                <p class="lead"> Jednakże zerknij proszę na naszą ofertę, gdyż może któraś z opcji Cię zaintryguje i zapragniesz jej doświadczyć osobiście. </p>
                             </div>
                         </div>
                         <div class= "col-6">
                             <div class="image-container h-image">
-                                <img class="img-fluid" src="https://image.freepik.com/darmowe-zdjecie/usmiechniety-ufny-bizneswoman-pozuje-z-rekami-skladac_1262-20950.jpg" alt="" />
+                                <img class="img-fluid" id="szef" src="" alt="" />
                             </div>
                         </div>
                     </div>

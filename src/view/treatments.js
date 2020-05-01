@@ -6,13 +6,13 @@ export const treatments =() => {
     const containerTreatment= $(`
         <div class="container-fluid"> 
             <div class="row justify-content-center">
-                <div class="col-6 header">
+                <div class="col-6 col-sm-12 col-xs-12 header">
                     <h1>Zapoznaj się z naszą ofertą dostępnych zabiegów</h1>
                 </div>
             </div>
             <div class="row justify-content-center" id="heightTreat">
           
-                <div class="card w-25 shadow" style="width: 16rem">
+                <div class="card shadow smview lgview" style="width: 16rem">
                     <div class="inner">
                         <a href="#info1" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/102/102630.png" id= "img1"  alt="Card image cap"> </a>
                     </div>
@@ -23,7 +23,7 @@ export const treatments =() => {
                         </div>
                 </div>
 
-                <div class="card  w-25 shadow" style="width: 16rem;">
+                <div class="card shadow smview lgview" style="width: 16rem;">
                 <div class="inner">
                     <a href="#info2" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/103/103436.png" id= "img1"  alt="Card image cap"> </a>
                 </div>
@@ -34,7 +34,7 @@ export const treatments =() => {
                     </div>
                 </div>
 
-                <div class="card w-25 shadow" style="width: 16rem;">
+                <div class="card shadow smview lgview" style="width: 16rem;">
                     <div class="inner">
                         <a href="#info3" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/114/114668.png" id= "img1"  alt="Card image cap"> </a>
                     </div>
@@ -45,7 +45,7 @@ export const treatments =() => {
                         </div>
                 </div>
                 
-                <div class="card w-25 shadow" style="width: 16rem;">
+                <div class="card shadow smview lgview" style="width: 16rem;">
                     <div class="inner">
                         <a href="#info4" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/92/92203.png" id= "img1"  alt="Card image cap"> </a>
                     </div>
@@ -56,7 +56,7 @@ export const treatments =() => {
                         </div>
                 </div>
 
-                <div class="card w-25 shadow" style="width: 16rem;">
+                <div class="card shadow smview lgview" style="width: 16rem;">
                     <div class="inner">
                         <a href="#info5" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/17/17787.png" id= "img1"  alt="Card image cap"> </a>
                     </div>
@@ -68,7 +68,7 @@ export const treatments =() => {
                 </div>
 
                 
-                <div class="card w-25 shadow" style="width: 16rem;">
+                <div class="card shadow smview lgview" style="width: 16rem;">
                 <div class="inner">
                     <a href="#info6" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/112/112407.png" id= "img1"  alt="Card image cap"> </a>
                 </div>
@@ -78,7 +78,7 @@ export const treatments =() => {
                         <a href="#" class="btn btn-secondary">Poznaj szczegóły oferty</a>
                     </div>
                 </div>
-                <div class="card w-25 shadow" style="width: 16rem;">
+                <div class="card shadow smview lgview" style="width: 16rem;">
                 <div class="inner">
                     <a href="#info7" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/33/33272.png" id= "img1"  alt="Card image cap"> </a>
                 </div>
@@ -98,8 +98,8 @@ export const treatments =() => {
                     <div> 
                         <div>
                             <label for="start"> Planowana data zabiegu:</label>
-                                <input type="date" id="inputDate1" value="dd.mm.rrrr" min="" max="" required>
-                                <input type="time" id="inputTime1" value="--:--">
+                                <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
+                                <input type="time" id="inputTime1" value="--:--" max="21:00" min="08:00">
                                 <button class="btn btn-secondary btn-sm"> Sprawdź dostępny termin </button>
                         </div>
                         <div id="showTime">
@@ -113,8 +113,8 @@ export const treatments =() => {
                     <div> 
                         <div>
                             <label for="start"> Planowana data zabiegu:</label>
-                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="" max="" required>
-                            <input type="time" id="inputTime1" value="--:--">
+                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
+                            <input type="time" id="inputTime1" value="--:--" max="21:00" min="08:00">
                             <button class="btn btn-secondary btn-sm"> Sprawdź dostępny termin </button>
                         </div>
                         <div id="showTime">
@@ -128,7 +128,7 @@ export const treatments =() => {
                     <div>
                         <div>
                             <label for="start"> Planowana data zabiegu:</label>
-                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="" max="" required>
+                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
                             <input type="time" id="inputTime1" value="--:--">
                             <button class="btn btn-secondary btn-sm"> Sprawdź dostępny termin </button>
                         </div>
@@ -143,8 +143,8 @@ export const treatments =() => {
                     <div>
                         <div>
                             <label for="start"> Planowana data zabiegu:</label>
-                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="" max="" required>
-                            <input type="time" id="inputTime1" value="--:--">
+                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
+                            <input type="time" id="inputTime1" value="--:--" max="21:00" min="08:00">
                             <button class="btn btn-secondary btn-sm"> Sprawdź dostępny termin </button>
                         </div>
                         <div id="showTime">
@@ -158,8 +158,8 @@ export const treatments =() => {
                     <div>
                         <div>
                             <label for="start"> Planowana data zabiegu:</label>
-                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="" max="" required>
-                            <input type="time" id="inputTime1" value="--:--">
+                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
+                            <input type="time" id="inputTime1" value="--:--" max="21:00" min="08:00">
                             <button class="btn btn-secondary btn-sm"> Sprawdź dostępny termin </button>
                         </div>
                         <div id="showTime">
@@ -173,8 +173,8 @@ export const treatments =() => {
                     <div>
                         <div>
                             <label for="start"> Planowana data zabiegu:</label>
-                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="" max="" required>
-                            <input type="time" id="inputTime1" value="--:--">
+                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
+                            <input type="time" id="inputTime1" value="--:--" max="21:00" min="08:00">
                             <button class="btn btn-secondary btn-sm"> Sprawdź dostępny termin </button>
                         </div>
                         <div id="showTime">
@@ -188,8 +188,8 @@ export const treatments =() => {
                     <div>
                         <div>
                             <label for="start"> Planowana data zabiegu:</label>
-                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="" max="" required>
-                            <input type="time" id="inputTime1" value="--:--">
+                            <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
+                            <input type="time" id="inputTime1" value="--:--" max="21:00" min="08:00">
                             <button class="btn btn-secondary btn-sm"> Sprawdź dostępny termin </button>
                         </div>
                         <div id="showTime">
@@ -202,7 +202,7 @@ export const treatments =() => {
         </section>
     `);
 
-  
+  /*
         $(document).ready(function(){  
             $('#myButton').click(function(event) {
               event.preventDefault();
@@ -210,8 +210,50 @@ export const treatments =() => {
           //$.scrollTo($("#info1"), { duration: 0});
           });
         });
+   */
   
-  
+   /*
+   $(document).ready(function (){
+    const massage = $('<button id="massage" type="submit"> Zarezerwuj </button>');
+    massage.on('click', getInputValue);
+    function getInputValue(){
+        var inputVal = document.getElementById("inputDate1").value;
+        alert(inputVal);
+    }
+    });
+*/
+   
+   /*
+   document.addEventListener('DOMContentLoaded', function() {
+    const massagebtn = document.getElementById(massagebtn);
+    massagebtn.onclick = getInputValue;
+    function getInputValue(){
+        var inputVal = document.getElementById("inputDate1").value;
+        alert(inputVal);
+    }
+    });
+    */
+/*
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(function(button) {
+        button.onclick = getInputValue;
+        function getInputValue(){
+            var inputVal = document.getElementById("inputDate1").value;
+            alert(inputVal);
+        }
+      });
+      */
+
+
+      const buttons = document.querySelectorAll('button');
+        for (let i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = getInputValue;
+            function getInputValue(){
+                var inputVal = document.getElementById("inputDate1").value;
+                console.log(inputVal);
+            }
+        }
+ 
     
  
     fragment.append(containerTreatment);
