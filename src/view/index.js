@@ -12,7 +12,7 @@ export * from './rooms';
 export * from './bookings';
 export * from './treatments';
 
-fetch('assets/img/szef.jpg')
+/* fetch('assets/img/szef.jpg')
 .then(response => {
     console.log(response);
     return response.blob();    
@@ -24,4 +24,4 @@ fetch('assets/img/szef.jpg')
 .catch(error => {
     console.log('error!');
     console.error(error);
-});    
+});     */

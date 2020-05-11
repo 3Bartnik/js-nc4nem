@@ -9,7 +9,7 @@ import {bookings} from '../views/bookings';
 import {home, rooms, treatments, bookings} from '../view' ;
 
 export const routes = [
-    {name: 'Strona główna', path: '/', component: home, data: {} },
+    {name: 'IT SPA', path: '/', component: home, data: {} },
     {name: 'Pokoje', path: '/pokoje', component: rooms, data: {} },
     {name: 'Zabiegi', path: '/zabiegi', component: treatments, data: {} },
     {name: 'Zamówienia', path: '/zamówienia', component: bookings, data: {} },

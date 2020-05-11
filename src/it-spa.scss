@@ -21,8 +21,11 @@ p {
 
 
 .btn-secondary, .card-body {
-    background-color: #117a8b;
+    //background-color: #117a8b;
     border-radius: 5px;
+}
+.btn-secondary{
+  background-color: #117a8b
 }
 
 .navbar-color{
@@ -136,6 +139,7 @@ p.text-muted {
 .card {
     margin: 10px;
     border: 0px;
+    display:flex;
 
 }
 .roomCard {
@@ -157,7 +161,7 @@ p.text-muted {
 }
 
 .card-img-top {
-    padding: 10% 10%;
+    //padding: 10% 10%;
     overflow: hidden;
 }
 .imgcrew{
@@ -232,7 +236,7 @@ height: 100vh;
 
 .card-text {
     position:relative;
-    bottom: 150px;
+    //bottom: 150px;
 }
 .btn-hide {
     background-color:#829CB8;
@@ -291,4 +295,24 @@ height: 100vh;
         font-size: 1.5rem;
     }
 }
+li:last-child {
+  margin-left: auto;
+}
+label{
+
+  margin: 0 20px;
+}
+button {
+  background-color: #117a8b;
+}
+
+input {
+  margin: 5px auto;
+}
+
+.constainerR{
+  display: flex;
+  justify-content: center;
+}
+
 

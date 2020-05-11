@@ -12,7 +12,7 @@ export const home =() => {
                 <div class="row">
                     <div class= "col-12">
                         <div class="text-container">
-                            <h1> <strong>Jedynie i niepowtarzalne SPA, którego na długo nie zapomnisz </strong></h1>
+                            <h1> <strong>Jedyne i niepowtarzalne SPA, którego długo nie zapomnisz </strong></h1>
                         </div>
                     </div>
                 </div>
@@ -36,42 +36,23 @@ export const home =() => {
             <div class="jumbotron jumbotron-fluid ">
                 <div class="container ">
                     <div class="row">
-                        <div class= "col-6">
+                        <div class= "col-sm-6">
                             <div class="container no-padding">
                                 <h1 class="display-4"> Oferujemy niestandardowe rozwiązania dla naszych wyjątkowych klientów</h1>
-                                <p class="lead">Jeżeli szukasz standardowej oferty zabiegów, niestety musimy Cię zmartwić. U nas jej nie doświadczysz. </p>
-                                <p class="lead"> Jednakże zerknij proszę na naszą ofertę, gdyż może któraś z opcji Cię zaintryguje i zapragniesz jej doświadczyć osobiście. </p>
                             </div>
                         </div>
-                        <div class= "col-6">
+                        <div class= "col-sm-6">
                             <div class="image-container h-image">
-                                <img class="img-fluid" id="szef" src="" alt="" />
+                                <img class="img-fluid" id="szef" src="https://image.freepik.com/darmowe-zdjecie/usmiechniety-ufny-bizneswoman-pozuje-z-rekami-skladac_1262-20950.jpg" alt="" />
                             </div>
                         </div>
+                        <p class="lead">Jeżeli szukasz standardowej oferty zabiegów, niestety musimy Cię zmartwić. U nas jej nie doświadczysz. </p>
+                        <p class="lead"> Zerknij proszę na naszą ofertę, gdyż może któraś z opcji Cię zaintryguje i zapragniesz jej doświadczyć osobiście. </p>
                     </div>
                 </div>
             </div>
         </div>
 </section>
-<section>
-        <div class="crew" container-fluid">
-                <div class="container">              
-                    <h1 class="display-4"> Poznaj naszych fachowców</h1>
-                </div>
-                <div style="display: inline-block">
-                    <img src="https://image.freepik.com/darmowe-zdjecie/portret-odizolowywajacy-bialy-mezczyzna_53876-40306.jpg" alt="..." class="img-thumbnail imgcrew">
-                    <p> </p>
-                    <img src="https://image.freepik.com/darmowe-zdjecie/zamyka-up-piekna-kobieta_23-2148369471.jpg" alt="" class="img-thumbnail imgcrew">
-                    <p> </p>
-                    <img src="https://image.freepik.com/darmowe-zdjecie/usmiechniety-portret-blondynki-bizneswomanu-mloda-pozycja-przeciw-popielatemu-tlu_23-2148029506.jpg" alt="" class="img-thumbnail imgcrew">
-                    <p> </p>
-                    <img src="https://image.freepik.com/darmowe-zdjecie/przystojny-mlody-biznesmen-w-koszula-i-eyeglasses_85574-6228.jpg" alt="" class="img-thumbnail imgcrew">
-                    <p></p>
-                    <img src="https://image.freepik.com/darmowe-zdjecie/portret-usmiechniety-przystojny-mezczyzna-patrzeje-kamere_23-2148213420.jpg" alt="" class="img-thumbnail imgcrew">
-                 </div>
-        <div>
-    </div> 
-</section> 
     `)
   
    fragment.append(homePage);

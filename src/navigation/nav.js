@@ -5,8 +5,7 @@ import { navItem } from './nav-item';
 export const nav = () => {
     const fragment = $(new DocumentFragment());
     const navBar = $(`
-        <nav class="navbar navbar-expand navbar-dark navbar-color justify-content-between"> 
-            <span class="navbar-brand"> IT SPA </span>
+        <nav class="navbar-expand navbar-dark navbar-color justify-content-between"> 
             <ul class="navbar-nav mr-auto"> 
             </ul>
         </nav>
