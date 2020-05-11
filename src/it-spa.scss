@@ -4,6 +4,7 @@ body {
     height: 100%;
     //font-family:'Lato', sans-serif;
 }
+
 h1 {
     text-align: center;
     font-size:24px;
@@ -294,6 +295,9 @@ height: 100vh;
     .display-4 {
         font-size: 1.5rem;
     }
+    card {
+      display:block;
+   }
 }
 li:last-child {
   margin-left: auto;

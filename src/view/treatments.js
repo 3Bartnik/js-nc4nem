@@ -1,5 +1,18 @@
 import $ from 'jquery';
 
+/* const api_url ="http://localhost:3000/rooms/";
+async function aboutRooms() {
+  const response = await fetch(api_url);
+  const json = await response.json;
+  console.log(json.price);
+  json.forEach(room => {
+    const containerElement= document.createElement('div');
+    containerElement.createList.add('container-fluid');
+  });
+}
+aboutRooms(); */
+
+
 export const treatments =() => {
     //tworzenie kontenera na dane, który renderuje się całościowo na koniec, nie obciąża to przeglądarki
     const fragment = $(new DocumentFragment());

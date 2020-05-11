@@ -2,22 +2,17 @@ import $ from "jquery";
 //import {toggleClass} from './function.js';
 
 //var start = Date.now();
+/* const api_url ="http://localhost:3000/rooms/";
+async function aboutRooms() {
+  const response = await fetch(api_url);
+  const json = await response.json;
+  console.log(json);
+}
+aboutRooms(); */
 
-fetch("http://localhost:3000/rooms/").then(response => {
-    console.log(response);
-    return response.json();
-    
-}).then(data => {{
-    console.log(data);
-    const guestR1 = data[0].guests;
-    const imgR1 =data[0].image;
-    const priceR1 = data[0].price;
-    const bedR1=data[0].beds;
-    console.log(guestR1);
-    console.log(imgR1);
-    console.log(priceR1);
-    console.log(bedR1);
-}});
+
+
+
 
 export const rooms = () => {
   //tworzenie kontenera na dane, który renderuje się całościowo na koniec, nie obciąża to przeglądarki
@@ -31,7 +26,7 @@ export const rooms = () => {
         </div>
     <div class="row justify-content-center">
     `);
-  const divR1 = $('<div class="containerR d-flex justify-content-center"></div>');
+  const divR1 = $('<div class="containerR d-flex "></div>');
 
 
   const container1 = $(`
@@ -51,20 +46,26 @@ export const rooms = () => {
     `); */
 
     const label1 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" required> `);
     container1.append(label1);
     const label2=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate2" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="inputDate2" value="dd.mm.rrrr" min="2020-05-27" required>`);
     container1.append(label2);
 
-    const btn1 = $(`<button  type="button" id="btn1" class="btn btn-secondary" > Zarezerwuj</button>`);
+    const btn1 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
     
     btn1.on("click", function() {
       const checkin= document.getElementById('inputDate1').value;
-      const checkout=document.getElementById('inputDate2').value;
+      const checkout= document.getElementById('inputDate2').value;
       console.log("Data przyjazdu:" + checkin);
       console.log("Data przyjazdu:" + checkout);
-        alert("Zarezerwowano!");
+    if (checkin == "" || checkout == "") {
+        alert('Wprowadź daty');
+        return;
+    } else {
+      alert("Zarezerwowano!");
+      }
+      
         });
     container1.append(btn1);
     container1.appendTo(divR1);
@@ -95,7 +96,7 @@ export const rooms = () => {
                 <input type="date" id="inputDate4" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container2.append(label4);
 
-    const btn2 = $(`<button  type="button" id="btn1" class="btn btn-secondary" > Zarezerwuj</button>`);
+    const btn2 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
     
     btn2.on("click", function() {
       const checkin= document.getElementById('inputDate3').value;
@@ -131,7 +132,7 @@ export const rooms = () => {
                 <input type="date" id="inputDate4" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container3.append(label6);
 
-    const btn3 = $(`<button  type="button" id="btn1" class="btn btn-secondary" > Zarezerwuj</button>`);
+    const btn3 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
     
     btn3.on("click", function() {
       const checkin= document.getElementById('inputDate3').value;
@@ -166,7 +167,7 @@ export const rooms = () => {
                 <input type="date" id="inputDate4" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container4.append(label8);
 
-    const btn4 = $(`<button  type="button" id="btn1" class="btn btn-secondary" > Zarezerwuj</button>`);
+    const btn4 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
     
     btn4.on("click", function() {
       const checkin= document.getElementById('inputDate3').value;
@@ -177,6 +178,71 @@ export const rooms = () => {
         });
     container4.append(btn4);
     divR1.append(container4);
+
+
+//
+
+
+fetch("http://localhost:3000/rooms/").then(response => {
+    console.log(response);
+    return response.json();
+    
+}).then(data => {{
+    console.log(data);
+    const price1R= data[0].price;  //170
+    const price2R= data[1].price; //240
+    const price3R= data[2].price;  //290
+    const price4R= data[3].price;//340
+    console.log(price2R);
+    
+    data.forEach(getprice => {
+    const containerElement = document.createElement('div');
+    containerElement.classList.add('containerR');
+    containerElement.classList.add('d-flex');
+    containerElement.classList.add('justify-content-center');
+
+    const cardElement = document.createElement('div');
+    cardElement.classList.add('card');
+
+    containerElement.appendChild(cardElement);
+
+    const cardImageElement = document.createElement('div');
+    cardImageElement.classList.add('card-image')
+
+    cardElement.appendChild(cardImageElement);
+
+    const imageElement = document.createElement('img');
+    const imgR1 =data[0].image;
+    imageElement.src= imgR1;
+    cardElement.appendChild(imageElement);
+
+    
+
+    })
+/*     const guestR1 = data[0].guests;
+    const imgR1 =data[0].image;
+    const priceR1 = data[0].price;
+    const bedR1=data[0].beds;
+    console.log(guestR1);
+    console.log(imgR1);
+    console.log(priceR1);
+    console.log(bedR1); */
+}});
+
+
     return fragment;
 };
+
+
+/* const allButtons= document.querySelectorAll('.add-to-card');
+for (let i=0; i < allButtons.length; i++) {
+console.log("loop");
+} */
+
+$(document).ready(function () {
+  const allButtons= document.querySelectorAll('.add-to-card');
+for (let i=0; i < allButtons.length; i++) {
+console.log("loop");
+}
+  });
 

@@ -12,6 +12,17 @@ export * from './rooms';
 export * from './bookings';
 export * from './treatments';
 
+
+/* $(window).load(function(){
+
+  window.setInterval(showPage, 3000);
+  
+  function showPage() {
+  	$('body').show();
+  }
+  
+}); */
+
 /* fetch('assets/img/szef.jpg')
 .then(response => {
     console.log(response);
@@ -25,3 +36,4 @@ export * from './treatments';
     console.log('error!');
     console.error(error);
 });     */
+
