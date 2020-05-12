@@ -46,10 +46,10 @@ export const rooms = () => {
     `); */
 
     const label1 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" required> `);
+                <input type="date" id="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" required> `);
     container1.append(label1);
     const label2=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate2" value="dd.mm.rrrr" min="2020-05-27" required>`);
+                <input type="date" id="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" required>`);
     container1.append(label2);
 
     const btn1 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -65,8 +65,7 @@ export const rooms = () => {
     } else {
       alert("Zarezerwowano!");
       }
-      
-        });
+    });
     container1.append(btn1);
     container1.appendTo(divR1);
      fragment.append(containerInfoRoom).append(divR1);
@@ -90,10 +89,10 @@ export const rooms = () => {
     `); */
 
     const label3 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate3" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
     container2.append(label3);
     const label4=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate4" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container2.append(label4);
 
     const btn2 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -103,8 +102,13 @@ export const rooms = () => {
       const checkout=document.getElementById('inputDate4').value;
       console.log("Data przyjazdu:" + checkin);
       console.log("Data przyjazdu:" + checkout);
-        alert("Zarezerwowano!");
-        });
+    if (checkin == "" || checkout == "") {
+        alert('Wprowadź daty');
+        return;
+    } else {
+      alert("Zarezerwowano!");
+      }
+    });
     container2.append(btn2);
     divR1.append(container2);
 
@@ -114,7 +118,7 @@ export const rooms = () => {
         <img src="https://image.freepik.com/darmowe-zdjecie/przytulny-apartament-typu-studio-z-sypialnia-i-salonem_1262-12323.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Pokój trzyosobowy</h5>
-            <p class="card-text"> Ilość łóżek: 1 <br> Ilość gości: 3  <br> Cena: 290,00 PLN</p>
+            <p class="card-text"> Ilość łóżek: 2 <br> Ilość gości: 3  <br> Cena: 290,00 PLN</p>
         </div>
     </div>
     `);
@@ -126,21 +130,26 @@ export const rooms = () => {
     `); */
 
     const label5 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate3" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
     container3.append(label5);
     const label6=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate4" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container3.append(label6);
 
     const btn3 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
     
     btn3.on("click", function() {
-      const checkin= document.getElementById('inputDate3').value;
-      const checkout=document.getElementById('inputDate4').value;
+      const checkin= document.getElementById('inputDate5').value;
+      const checkout=document.getElementById('inputDate6').value;
       console.log("Data przyjazdu:" + checkin);
       console.log("Data przyjazdu:" + checkout);
-        alert("Zarezerwowano!");
-        });
+    if (checkin == "" || checkout == "") {
+        alert('Wprowadź daty');
+        return;
+    } else {
+      alert("Zarezerwowano!");
+      }
+    });
     container3.append(btn3);
     divR1.append(container3);
 
@@ -149,7 +158,7 @@ export const rooms = () => {
         <img src="https://image.freepik.com/darmowe-zdjecie/luksusowa-sypialnia-lub-pokoj-hotelowy_180547-919.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">Pokój czteroosobowy</h5>
-            <p class="card-text"> Ilość łóżek: 1 <br> Ilość gości: 4  <br> Cena: 340,00 PLN</p>
+            <p class="card-text"> Ilość łóżek: 2 <br> Ilość gości: 4  <br> Cena: 340,00 PLN</p>
         </div>
     </div>
     `);
@@ -161,21 +170,26 @@ export const rooms = () => {
     `); */
 
     const label7 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate3" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
     container4.append(label7);
     const label8 =$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate4" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container4.append(label8);
 
     const btn4 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
     
     btn4.on("click", function() {
-      const checkin= document.getElementById('inputDate3').value;
-      const checkout=document.getElementById('inputDate4').value;
+      const checkin= document.getElementById('inputDate7').value;
+      const checkout= document.getElementById('inputDate8').value;
       console.log("Data przyjazdu:" + checkin);
       console.log("Data przyjazdu:" + checkout);
-        alert("Zarezerwowano!");
-        });
+    if (checkin == "" || checkout == "") {
+        alert('Wprowadź daty');
+        return;
+    } else {
+      alert("Zarezerwowano!");
+      }
+    });
     container4.append(btn4);
     divR1.append(container4);
 
@@ -239,10 +253,61 @@ for (let i=0; i < allButtons.length; i++) {
 console.log("loop");
 } */
 
+let products = [
+    {
+      "id": 1,
+      "name": "Pokój unarny",
+      "beds": 1,
+      "guests": 1,
+      "price": 170,
+      "image": "https://cdn.pixabay.com/photo/2016/11/19/13/06/bed-1839183__480.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Pokój binarny",
+      "beds": 1,
+      "guests": 2,
+      "price": 240,
+      "image": "https://image.freepik.com/darmowe-psd/nowoczesna-sypialnia-lub-pokoj-hotelowy-z-podwojnym-lozkiem-i-eleganckimi-meblami_176382-210.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Pokój trójkowy",
+      "beds": 2,
+      "guests": 3,
+      "price": 290,
+      "image": "https://image.freepik.com/darmowe-zdjecie/pokoj-hotelowy_23-2148095366.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Pokój czwórkowy",
+      "beds": 2,
+      "guests": 4,
+      "price": 340,
+      "image": "https://cdn.pixabay.com/photo/2019/12/16/15/43/room-4699578_1280.jpg"
+    }
+  ]
+
+
 $(document).ready(function () {
-  const allButtons= document.querySelectorAll('.add-to-card');
-for (let i=0; i < allButtons.length; i++) {
-console.log("loop");
-}
-  });
+    const allButtons= document.querySelectorAll('.add-to-card');
+    for (let i=0; i < allButtons.length; i++) {
+      console.log("loop");
+      allButtons[i].addEventListener('click', ()=> {
+      console.log('Dodano do koszyka ');
+      console.log("wybrany produkt to:", products[i]);
+    
+    //daty
+    const allCheckin = document.querySelectorAll('#checkinDate');
+    const allCheckout = document.querySelectorAll('#checkoutDate');
+
+
+      console.log("wybrana data przyjazdu to:", checkinDate[i].value);
+      console.log("wybrana data wyjazdu to:", checkoutDate[i].value);
+
+
+    });
+  };
+
+});
 
