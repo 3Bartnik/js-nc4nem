@@ -1,6 +1,7 @@
 import $ from 'jquery';
 //import treatments from './treatments.js';
 
+
 export const home =() => {
     //tworzenie kontenera na dane, który renderuje się całościowo na koniec, nie obciąża to przeglądarki
     const fragment = $(new DocumentFragment());
@@ -59,3 +60,23 @@ export const home =() => {
     return fragment;
     
 };
+
+/* fetch("./assets/img/szef.jpg").then(response => {
+      console.log(response);
+      return response.blob();
+    }).then(data => {
+        console.log(data);
+       
+    }); */
+
+/* fetch("./assets/img/szef.jpg").then(response => {
+    console.log(response);
+    return response.blob();
+    
+}).then(blob => {{
+    console.log(blob);
+    const {image} = blob;
+    console.log(image);
+    
+    document.getElementById('szef').src= URL.createObjectURL(blob);
+}}); */

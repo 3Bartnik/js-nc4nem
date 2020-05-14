@@ -21,7 +21,7 @@ export const rooms = () => {
     <div class="container-fluid"> 
         <div class="row justify-content-center">
             <div class="col-6 header">
-                <h1 class="display-4">Zapoznaj się z ofertą dostępnych pokojów</h1>
+                <h1 class="display-4 headerPZ">Zapoznaj się z ofertą dostępnych pokojów</h1>
             </div>
         </div>
     <div class="row justify-content-center">
@@ -46,10 +46,10 @@ export const rooms = () => {
     `); */
 
     const label1 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" required> `);
+                <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" required> `);
     container1.append(label1);
     const label2=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" required>`);
+                <input type="date" id="inputDate2" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" required>`);
     container1.append(label2);
 
     const btn1 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -68,6 +68,8 @@ export const rooms = () => {
     });
     container1.append(btn1);
     container1.appendTo(divR1);
+
+
      fragment.append(containerInfoRoom).append(divR1);
    // divR1.append(container1)
     
@@ -89,10 +91,10 @@ export const rooms = () => {
     `); */
 
     const label3 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate3" class="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
     container2.append(label3);
     const label4=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="inputDate4" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container2.append(label4);
 
     const btn2 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -130,10 +132,10 @@ export const rooms = () => {
     `); */
 
     const label5 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate5" class="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
     container3.append(label5);
     const label6=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="inputDate6" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container3.append(label6);
 
     const btn3 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -170,10 +172,10 @@ export const rooms = () => {
     `); */
 
     const label7 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate7" class="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
     container4.append(label7);
     const label8 =$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="inputDate8" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
     container4.append(label8);
 
     const btn4 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -193,6 +195,9 @@ export const rooms = () => {
     container4.append(btn4);
     divR1.append(container4);
 
+    const sectionW= $(`<section id="output"> </section>`);
+    divR1.append(sectionW);
+
 
 //
 
@@ -201,8 +206,12 @@ fetch("http://localhost:3000/rooms/").then(response => {
     console.log(response);
     return response.json();
     
-}).then(data => {{
+}).then(data => {
     console.log(data);
+  /*   for (let i=0; i> data.lenght; i++) {
+      data = new Map() ;
+      let pirice1= data.get('price');
+    } *//*  */
     const price1R= data[0].price;  //170
     const price2R= data[1].price; //240
     const price3R= data[2].price;  //290
@@ -241,7 +250,11 @@ fetch("http://localhost:3000/rooms/").then(response => {
     console.log(imgR1);
     console.log(priceR1);
     console.log(bedR1); */
-}});
+});
+
+
+
+ 
 
 
     return fragment;
@@ -298,16 +311,26 @@ $(document).ready(function () {
       console.log("wybrany produkt to:", products[i]);
     
     //daty
-    const allCheckin = document.querySelectorAll('#checkinDate');
-    const allCheckout = document.querySelectorAll('#checkoutDate');
+/*     const allCheckin = document.querySelectorAll('.checkinDate');
+    const allCheckout = document.querySelectorAll('.checkoutDate');
 
 
       console.log("wybrana data przyjazdu to:", checkinDate[i].value);
-      console.log("wybrana data wyjazdu to:", checkoutDate[i].value);
+      console.log("wybrana data wyjazdu to:", checkoutDate[i].value); */
 
 
     });
+    //ustawienie minimalnej daty min="2020-05-09"
+    /* function setCheckinDate(){
+    const now = new Date().toISOString();
+    const startDate= now.split('T')[0];
+    console.log(startDate);
+    const checkin= document.getElementById('checkinDate');
+    checkin.setAttribute("min", "startDate");
+    }
+    setCheckinDate();  */
+
   };
 
 });
-
+ 

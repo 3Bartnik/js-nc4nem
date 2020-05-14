@@ -129,6 +129,7 @@ p.text-muted {
     margin: 0 auto;
     position: relative;
     top: 250px;
+
 }
 
 
@@ -199,6 +200,7 @@ p.text-muted {
 .header {
     //height: 100px;
     padding-top: 30px;
+
   }
 
 .sectionInfo, .sectionTreat {
@@ -281,7 +283,7 @@ height: 100vh;
     border-radius: 5px;
 }
 @media only screen and (max-width:768px) {
-    #heightTreat { 
+    .heightTreat { 
       width:100%;
       margin: 0em;
       padding: 0em;
@@ -298,7 +300,17 @@ height: 100vh;
     card {
       display:block;
    }
+
 }
+@media only screen and (max-width: 760px ) {
+     .text-container {
+    text-shadow: -2px 1px 5px black;
+   }
+   .headerPZ {
+  font-size: 1em;
+   }
+}
+
 li:last-child {
   margin-left: auto;
 }
@@ -317,6 +329,11 @@ input {
 .constainerR{
   display: flex;
   justify-content: center;
+}
+.headerPZ {
+  margin-bottom: 30px;
+  font-size: 1.7em;
+  margin-bottom: 30px;
 }
 
 
