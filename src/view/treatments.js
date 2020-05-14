@@ -26,10 +26,9 @@ export const treatments =() => {
                 </div>
             </div>
             
-
-        </section>
-        <section id="output" class="row justify-content-center heightTreat" >
-        </section>
+          <section id="output" class="row justify-content-center heightTreat">
+          </section>
+        </div>
     `);
 
   /*
@@ -110,6 +109,7 @@ export const treatments =() => {
       return response.json();
     }).then(data => {
         console.log(data);
+        console.log(data.image);
         const output = '<div class="row justify-content-center" id="heightTreat"> </div>'
         data.forEach(function(treat){
 
@@ -122,7 +122,7 @@ export const treatments =() => {
                             <h5 class="card-title"> ${treat.name}</h5>
                             <p class="card-text"> 
                               <ul>
-                                <li> część ciała: ${treat.area}</li>
+                                <li> Część ciała: ${treat.area}</li>
                                 <li> Czas trwania: ${treat.time} min</li>
                                 <li> Koszt usługi: ${treat.price}</li>
                               </ul>
