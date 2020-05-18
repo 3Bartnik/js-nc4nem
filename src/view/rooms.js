@@ -1,21 +1,7 @@
 import $ from "jquery";
-//import {toggleClass} from './function.js';
-
-//var start = Date.now();
-/* const api_url ="http://localhost:3000/rooms/";
-async function aboutRooms() {
-  const response = await fetch(api_url);
-  const json = await response.json;
-  console.log(json);
-}
-aboutRooms(); */
-
-
-
-
+import {Cart} from '../cart/cart';
 
 export const rooms = () => {
-  //tworzenie kontenera na dane, który renderuje się całościowo na koniec, nie obciąża to przeglądarki
   const fragment = $(new DocumentFragment());
   const containerInfoRoom = $(`
     <div class="container-fluid"> 
@@ -300,7 +286,9 @@ let products = [
       "image": "https://cdn.pixabay.com/photo/2019/12/16/15/43/room-4699578_1280.jpg"
     }
   ]
-
+  
+const shoppingCart = new Cart(); 
+console.log(shoppingCart);
 
 $(document).ready(function () {
     const allButtons= document.querySelectorAll('.add-to-card');
@@ -309,6 +297,18 @@ $(document).ready(function () {
       allButtons[i].addEventListener('click', ()=> {
       console.log('Dodano do koszyka ');
       console.log("wybrany produkt to:", products[i]);
+
+      console.log(products[i].name);
+      console.log(products[i].price);
+
+
+
+/*       const product = new shoppingCart(id[i],name[i]); */
+      console.log(shoppingCart);
+
+
+/*        shoppingCart.add(id[i],name[i]);
+      console.log(shoppingCart); */
     
     //daty
 /*     const allCheckin = document.querySelectorAll('.checkinDate');

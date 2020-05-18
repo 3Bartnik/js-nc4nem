@@ -121,10 +121,10 @@ export const treatments =() => {
                     <div class="card-body">
                             <h5 class="card-title"> ${treat.name}</h5>
                             <p class="card-text"> 
-                              <ul>
+                              <ul class="treat-info">
                                 <li> Część ciała: ${treat.area}</li>
                                 <li> Czas trwania: ${treat.time} min</li>
-                                <li> Koszt usługi: ${treat.price}</li>
+                                <li> Koszt usługi: ${treat.price},00 zł</li>
                               </ul>
                             </p>
                     </div>
