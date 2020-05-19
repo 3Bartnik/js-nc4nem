@@ -181,7 +181,7 @@ export const rooms = () => {
     container4.append(btn4);
     divR1.append(container4);
 
-    const sectionW= $(`<section id="output"> </section>`);
+    const sectionW= $(`<section id="output2"> </section>`);
     divR1.append(sectionW);
 
 

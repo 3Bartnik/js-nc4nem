@@ -19,7 +19,6 @@ export const nav = () => {
         
     fragment.append(navBar);
 
-
     const bannerCart =$(`
 
         <div id="cart" class="cart">
@@ -66,21 +65,27 @@ export const nav = () => {
     `)
     fragment.append(bannerCart);
 
+    $(document).ready(function () {
+    const ulNavigation = document.querySelector('.navbar-expand ul');
+    const ulElement = ulNavigation.lastChild;
+    const aElement = ulElement.firstChild;
+    console.log(aElement);
+    aElement.addEventListener("mouseover", function(event){
+        console.log('onmouseover Event');
+        const cart = document.getElementById('cart');
+        cart.style.display ="block";
+    });
+    aElement.addEventListener("mouseout", function(event){
+        console.log('mouseout Event');
+        const cart = document.getElementById('cart');
+        cart.style.display ="none";
+    });
+
+    (function(){
+
+    })();
+});
+
     return fragment;
 }
 
-$(document).ready(function () {
-    const ulNavigation= document.querySelector('.navbar-expand ul');
-    const ulElement= ulNavigation.lastChild;
-    const aElement =ulElement.firstChild;
-    console.log(aElement);
-    aElement.addEventListener("onmouseover", function(event){
-        console.log('onmouseover Event');
-/*         const cart= document.getElementById('cart');
-        cart.style.display ="block"; */
-        //event.target.style.display ="block";
-        //event.target.toggleClass('cart-show');
-        event.target.classList.toggle('cart-show');
-
-    });
-});
