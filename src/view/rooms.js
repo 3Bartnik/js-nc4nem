@@ -32,7 +32,7 @@ export const rooms = () => {
     `); */
 
     const label1 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" required> `);
+                <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" required> `);
     container1.append(label1);
     const label2=$(`<label for="end"> Planowana data wyjazdu:  </label>
                 <input type="date" id="inputDate2" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" required>`);
@@ -77,7 +77,7 @@ export const rooms = () => {
     `); */
 
     const label3 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate3" class="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate3" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" requred> `);
     container2.append(label3);
     const label4=$(`<label for="end"> Planowana data wyjazdu:  </label>
                 <input type="date" id="inputDate4" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
@@ -118,7 +118,7 @@ export const rooms = () => {
     `); */
 
     const label5 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate5" class="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate5" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" requred> `);
     container3.append(label5);
     const label6=$(`<label for="end"> Planowana data wyjazdu:  </label>
                 <input type="date" id="inputDate6" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
@@ -158,7 +158,7 @@ export const rooms = () => {
     `); */
 
     const label7 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate7" class="checkinDate" value="dd.mm.rrrr" min="2020-05-09" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate7" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" requred> `);
     container4.append(label7);
     const label8 =$(`<label for="end"> Planowana data wyjazdu:  </label>
                 <input type="date" id="inputDate8" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
@@ -221,7 +221,7 @@ fetch("http://localhost:3000/rooms/").then(response => {
     cardElement.appendChild(cardImageElement);
 
     const imageElement = document.createElement('img');
-    const imgR1 =data[0].image;
+    const imgR1 = data[0].image;
     imageElement.src= imgR1;
     cardElement.appendChild(imageElement);
 
@@ -237,11 +237,6 @@ fetch("http://localhost:3000/rooms/").then(response => {
     console.log(priceR1);
     console.log(bedR1); */
 });
-
-
-
- 
-
 
     return fragment;
 };
@@ -294,13 +289,108 @@ $(document).ready(function () {
     const allButtons= document.querySelectorAll('.add-to-card');
     for (let i=0; i < allButtons.length; i++) {
       console.log("loop");
-      allButtons[i].addEventListener('click', ()=> {
+      allButtons[i].addEventListener('click', (item)=> {
       console.log('Dodano do koszyka ');
       console.log("wybrany produkt to:", products[i]);
 
       console.log(products[i].name);
       console.log(products[i].price);
+/*       const item = products[i].name;
+      const itemPrice = products[i].price; */
 
+      const item ={};
+      item.name = products[i].name;
+      item.beds = products[i].beds;
+      item.price = products[i].price;
+      item.guests = products[i].guests;
+      item.image = products[i].image;
+
+      const checkin = document.querySelectorAll('.checkoutDate');
+      for (let v=0; v < checkin.length; v++) {
+          const checkinDate = checkin[i].value;
+      }
+      item.checkin =checkinDate
+      console.log("produkt new:", item);
+
+      const checkout = document.querySelectorAll('.checkinDate');
+          for (let w=0; w < checkin.length; w++) {
+          const checkoutDate = checkout[i].value;
+      }
+      item.checkout =checkoutDate
+      console.log("produkt new:", item);
+      
+      shoppingCart.add(item);
+      if (shoppingCart.exists()){
+        shoppingCart.add(item);
+      }
+
+      console.log('w koszyku jest:',shoppingCart );
+
+//podsumowanie zamówienia
+      const cartItem = document.createElement('div');
+      cartItem.classList.add("cart-item", "d-flex", "justify-content-between", "text-capitalize", "my-3");
+      cartItem.innerHTML = `
+          <img src="${item.image}" class="img-fluid rounded-circle" id="item-img" width="100" height="200" alt=""/>
+          <div class="item-text">
+              <p id="cart-item-title" class="font-weight-bold mb-0">Produkt: ${item.name}</p>
+              <span> Termin przyjazdu: ${item.checkin} <br> Termin wyjazdu: ${item.checkout} <span> <br>
+              <span id="cart-item-price" class="cart-item-price" class="mb-0">Cena:  ${item.price} PLN </span>
+          </div>
+          <div class="cart-buttons-container mt-3 d-flex justify-content-between">
+            <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">Wyczyść</a>
+            <a href="#" class="btn btn-outline-secondary text-uppercase">Zarezerwuj</a>
+          </div>
+          `
+
+      const cartBanner = document.getElementById('cart');
+      const total = document.querySelector('.cart-total-container');
+      cartBanner.insertBefore(cartItem, total )
+      alert('Produkt dodany do koszyka');
+
+
+/*       const item = {
+        name: products[i].name,
+        beds: products[i].beds,
+        guests: products[i].guests,
+        price: products[i].price
+
+      }; */
+      
+
+      //cookie
+/*       const myCookies = {};
+      function addCookie (){
+          myCookies["_chekindate"]=document.getElementById('inputDate7').value;
+          myCookies["_chekoutdate"]=document.getElementById('inputDate8').value;
+          document.cookie= "";
+          let expiresAttribute = new Date(Date.now()+60*3).toString();
+          let cookieString= "";
+          for (var key in myCookies) {
+            cookieString = key + "=" +myCookies[key] +";" +expiresAttribute+ ";";
+            document.cookie= cookieString;
+          }
+      } */
+
+
+      console.log ('cookie dla przycisku:',document.cookie);
+      document.cookie = `IT_SPA_CART= ${item}`;    //dodaje wybrany pokoj w cookie i loguje do konsoli
+      //document.cookie = `IT_SPA_CART= ${itemPrice}`;   //przekazuje cene
+
+      console.log(document.cookie);
+      //shoppingCart.add(products[i].name);
+/*       shoppingCart.push([{
+        name= 'John'},
+        {beds= 12},
+        {price= 1200}
+      ]); */
+      console.log(shoppingCart);
+
+
+
+
+
+    //document.cookie = `room=${products[i]}`;
+    //document.cookie = "room= `${products[i].name}`";
 
 
 /*       const product = new shoppingCart(id[i],name[i]); */
@@ -317,6 +407,51 @@ $(document).ready(function () {
 
       console.log("wybrana data przyjazdu to:", checkinDate[i].value);
       console.log("wybrana data wyjazdu to:", checkoutDate[i].value); */
+
+
+/*       
+    function setCookie(name, val, days, path, domain, secure) {
+    if (navigator.cookieEnabled) { //czy ciasteczka są włączone
+        const cookieName = encodeURIComponent(name);
+        const cookieVal = encodeURIComponent(val);
+        let cookieText = cookieName + "=" + cookieVal;
+
+        if (typeof days === "number") {
+            const data = new Date();
+            data.setTime(data.getTime() + (days * 24*60*60*1000));
+            cookieText += "; expires=" + data.toGMTString();
+        }
+
+        if (path) {
+            cookieText += "; path=" + path;
+        }
+        if (domain) {
+            cookieText += "; domain=" + domain;
+        }
+        if (secure) {
+            cookieText += "; secure";
+        }
+
+        document.cookie = cookieText;
+        }
+    }
+    const checkinVal = document.querySelector("#name").value;
+    const checkinVal = document.querySelector("#surname").value;
+    setCookie("checkin", checkinVal);
+    setCookie("checkout", checkinVal); */
+
+
+
+/*    
+    const allInput= document.querySelectorAll('input');
+    allInput.forEach( ()=> {
+      const now = new Date().toISOString();
+      console.log(now);
+      const startDate= now.split('T')[0];
+      allInput.setAttribute("min", `${startDate}`);
+      console.log("start date is:", startDate);
+    })
+ */
 
 
     });
