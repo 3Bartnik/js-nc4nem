@@ -33,6 +33,7 @@ export const rooms = () => {
 
     const label1 =$(`<label for="start"> Planowana data przyjazdu:</label>
                 <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" required> `);
+
     container1.append(label1);
     const label2=$(`<label for="end"> Planowana data wyjazdu:  </label>
                 <input type="date" id="inputDate2" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" required>`);
@@ -41,15 +42,17 @@ export const rooms = () => {
     const btn1 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
     
     btn1.on("click", function() {
+      
       const checkin= document.getElementById('inputDate1').value;
       const checkout= document.getElementById('inputDate2').value;
       console.log("Data przyjazdu:" + checkin);
-      console.log("Data przyjazdu:" + checkout);
+      console.log("Data wyjazdu:" + checkout);
     if (checkin == "" || checkout == "") {
         alert('Wprowadź daty');
         return;
     } else {
       alert("Zarezerwowano!");
+
       }
     });
     container1.append(btn1);
@@ -262,7 +265,7 @@ let products = [
       "beds": 1,
       "guests": 2,
       "price": 240,
-      "image": "https://image.freepik.com/darmowe-psd/nowoczesna-sypialnia-lub-pokoj-hotelowy-z-podwojnym-lozkiem-i-eleganckimi-meblami_176382-210.jpg"
+      "image": "https://image.freepik.com/darmowe-zdjecie/pokoj-hotelowy_23-2148095365.jpg"
     },
     {
       "id": 3,
@@ -270,7 +273,7 @@ let products = [
       "beds": 2,
       "guests": 3,
       "price": 290,
-      "image": "https://image.freepik.com/darmowe-zdjecie/pokoj-hotelowy_23-2148095366.jpg"
+      "image": "https://image.freepik.com/darmowe-zdjecie/przytulny-apartament-typu-studio-z-sypialnia-i-salonem_1262-12323.jpg"
     },
     {
       "id": 4,
@@ -278,7 +281,7 @@ let products = [
       "beds": 2,
       "guests": 4,
       "price": 340,
-      "image": "https://cdn.pixabay.com/photo/2019/12/16/15/43/room-4699578_1280.jpg"
+      "image": "https://image.freepik.com/darmowe-zdjecie/luksusowa-sypialnia-lub-pokoj-hotelowy_180547-919.jpg"
     }
   ]
   
@@ -286,6 +289,28 @@ const shoppingCart = new Cart();
 console.log(shoppingCart);
 
 $(document).ready(function () {
+  
+   
+  const startDate = $('.checkinDate');
+  for (let i=0; i < startDate.length; i++){
+    console.log("startDate:", startDate);
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }; 
+        if(mm<10){
+            mm='0'+mm
+        };
+      today = yyyy+'-'+mm+'-'+dd; 
+        startDate.attr("min",today);
+      console.log("start date", startDate);
+  }
+
+
+
     const allButtons= document.querySelectorAll('.add-to-card');
     for (let i=0; i < allButtons.length; i++) {
       console.log("loop");
@@ -305,14 +330,14 @@ $(document).ready(function () {
       item.guests = products[i].guests;
       item.image = products[i].image;
 
-      const checkin = document.querySelectorAll('.checkoutDate');
+      const checkin = document.querySelectorAll('.checkinDate');
       for (let v=0; v < checkin.length; v++) {
           const checkinDate = checkin[i].value;
       }
       item.checkin =checkinDate
       console.log("produkt new:", item);
 
-      const checkout = document.querySelectorAll('.checkinDate');
+      const checkout = document.querySelectorAll('.checkoutDate');
           for (let w=0; w < checkin.length; w++) {
           const checkoutDate = checkout[i].value;
       }
@@ -336,16 +361,14 @@ $(document).ready(function () {
               <span> Termin przyjazdu: ${item.checkin} <br> Termin wyjazdu: ${item.checkout} <span> <br>
               <span id="cart-item-price" class="cart-item-price" class="mb-0">Cena:  ${item.price} PLN </span>
           </div>
-          <div class="cart-buttons-container mt-3 d-flex justify-content-between">
-            <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">Wyczyść</a>
-            <a href="#" class="btn btn-outline-secondary text-uppercase">Zarezerwuj</a>
-          </div>
+
           `
 
       const cartBanner = document.getElementById('cart');
       const total = document.querySelector('.cart-total-container');
       cartBanner.insertBefore(cartItem, total )
       alert('Produkt dodany do koszyka');
+      showTotal();
 
 
 /*       const item = {
@@ -372,28 +395,20 @@ $(document).ready(function () {
       } */
 
 
-      console.log ('cookie dla przycisku:',document.cookie);
-      document.cookie = `IT_SPA_CART= ${item}`;    //dodaje wybrany pokoj w cookie i loguje do konsoli
+    console.log ('cookie dla przycisku:',document.cookie);
+     const cookies= document.cookie 
+      var now = new Date();
+      var time = now.getTime();
+      var expires = (new Date(Date.now()+ 86400*1000)).toUTCString();
+     cookies = `IT_SPA_CART= ${item}`,"max-age=2600; path=/";
+     //cookies = `IT_SPA_CART= ${item}; "max-age=86400; path=/`;  
+     //dodaje wybrany pokoj w cookie i loguje do konsoli
       //document.cookie = `IT_SPA_CART= ${itemPrice}`;   //przekazuje cene
 
-      console.log(document.cookie);
-      //shoppingCart.add(products[i].name);
-/*       shoppingCart.push([{
-        name= 'John'},
-        {beds= 12},
-        {price= 1200}
-      ]); */
+      console.log(cookies);
       console.log(shoppingCart);
 
-
-
-
-
-    //document.cookie = `room=${products[i]}`;
-    //document.cookie = "room= `${products[i].name}`";
-
-
-/*       const product = new shoppingCart(id[i],name[i]); */
+      shoppingCart.get();
       console.log(shoppingCart);
 
 
@@ -455,6 +470,14 @@ $(document).ready(function () {
 
 
     });
+    function showTotal(){
+      const total = [];
+      const items= document.querySelectorAll('.cart-item-price');
+      items.forEach(function(item){
+        total.push(parseFloat(item.textContent));
+      })
+      console.log(total);
+    }
     //ustawienie minimalnej daty min="2020-05-09"
     /* function setCheckinDate(){
     const now = new Date().toISOString();

@@ -25,7 +25,14 @@ export const nav = () => {
         <p> Wybrałeś: </p>
 
           
-
+          <div class="cart-total-container d-flex justify-content-around text-capitalize mt-5">
+            <h5>Suma:</h5>
+            <h5> <strong id="cart-total" class="font-weight-bold"> </strong> </h5>
+          </div>
+          <div class="cart-buttons-container mt-3 d-flex justify-content-between">
+            <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">Wyczyść</a>
+            <a href="#" class="btn btn-outline-secondary text-uppercase">Zarezerwuj</a>
+          </div>
         </div>
     `)
     fragment.append(bannerCart);
@@ -36,12 +43,12 @@ export const nav = () => {
     const aElement = ulElement.firstChild;
     console.log(aElement);
     aElement.addEventListener("mouseover", function(event){
-        console.log('onmouseover Event');
+        //console.log('onmouseover Event');
         const cart = document.getElementById('cart');
         cart.style.display ="block";
     });
-    aElement.addEventListener("mouseout", function(event){
-        console.log('mouseout Event');
+    aElement.addEventListener("click", function(event){
+        //console.log('mouseout Event');
         const cart = document.getElementById('cart');
         cart.style.display ="none";
     });

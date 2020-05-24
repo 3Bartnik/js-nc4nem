@@ -92,6 +92,8 @@ p.text-muted {
 
 .inner {
         overflow:hidden;
+    padding: 20px 30px;
+    
 }
 /*
 .inner img {
@@ -362,5 +364,8 @@ list-style-type: none;
 }
 .cart-item img{
   margin-right: 10px;
+}
+.cart-item p {
+  justify-content: center;
 }
 

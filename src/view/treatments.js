@@ -1,20 +1,5 @@
 import $ from 'jquery';
-import {Cart} from '../cart/cart';
-
-/* const api_url ="http://localhost:3000/rooms/";
-async function aboutRooms() {
-  const response = await fetch(api_url);
-  const json = await response.json;
-  console.log(json.price);
-  json.forEach(room => {
-    const containerElement= document.createElement('div');
-    containerElement.createList.add('container-fluid');
-  });
-}
-aboutRooms(); */
-
-
-
+import {shoppingCart, Cart} from '../cart/cart';
 
 export const treatments =() => {
     //tworzenie kontenera na dane, który renderuje się całościowo na koniec, nie obciąża to przeglądarki
@@ -38,13 +23,13 @@ export const treatments =() => {
     }).then(data => {
         console.log(data);
         console.log(data.image);
-        const output = '<div class="row justify-content-center" id="heightTreat"> </div>'
+        const output = '<div > </div>'
         data.forEach(function(treat){
 
             output += `
                 <div class="card shadow smview lgview" style="width: 16rem">
                     <div class="inner">
-                        <img class="card-img-top" src="https://image.flaticon.com/icons/png/512/102/102630.png" id= "img1"  alt="Card image cap" />
+                        <img class="card-img-top" src="${treat.image}" id= "img1"  alt="Card image cap" />
                     </div>
                     <div class="card-body">
                             <h5 class="card-title"> ${treat.name}</h5>
@@ -58,195 +43,141 @@ export const treatments =() => {
                     </div>
                     <div class="reservation">
                         <label for="start"> Planowana data zabiegu:</label>
-                          <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
-                          <input type="time" id="inputTime1" value="--:--" max="21:00" min="08:00">
+                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
+                          <input type="time" id="treatTime" value="--:--" max="21:00" min="08:00">
                     </div>
-                    <button type="submit" class="btn btn-secondary add-to-card"> Zarezerwuj </button>
+                    <button type="submit" class="btn btn-secondary add-to-card2"> Zarezerwuj </button>
                 </div>
         `});
     document.getElementById('output').innerHTML = output;
-    const button =$(`<button type="submit"> Zarezerwuj </button>`)
-
-/*     function loadData() {
-      return fetch("http://localhost:3000/treatments")
-          .then(response => response.json())
-          .then(json => console.log(json))
-    }
-    loadData()
-        .then(data => console.log(data)) */
-              
+    const button =$(`<button type="submit"> Zarezerwuj </button>`)              
     }); 
-
-    async function loadData() {
-    const response  = await fetch("http://localhost:3000/treatments");
-    const json = await response.json();
-    return json;
-    }
-
-    loadData()
-      .then(data => console.log(`To nowe dane:`, data))
-
-    async function loadImages() {
-    try {
-        const img1 = await loadImage("image1.jpg"),
-        const img2 = await loadImage("image2.jpg"),
-    } catch (err) {
-        console.log(err)
-    }
-}
-
  
     fragment.append(containerTreatment);
     return fragment;
 };
+console.log(shoppingCart);
+
+let treatmentsItem = [
+        {
+          id: 1,
+          name: "Masaż rozgrzanym monitorem",
+          area: "plecy",
+          time: 30,
+          price: 80,
+          image: "https://image.flaticon.com/icons/png/512/102/102630.png",
+        },
+        {
+          id: 2,
+          name: "Biczowanie kablem od myszy",
+          area: "plecy",
+          time: 20,
+          price: 70,
+          image: "https://image.flaticon.com/icons/png/512/103/103436.png",
+        },
+        {
+          id: 3,
+          name: "Peeling odłamkami płyty CD",
+          area: "twarz",
+          time: 15,
+          price: 50,
+          image: "https://image.flaticon.com/icons/png/512/114/114668.png",
+        },
+        {
+          id: 4,
+          name: "Pedicure woskiem z USB",
+          area: "nogi",
+          time: 25,
+          price: 100,
+          image: "https://image.flaticon.com/icons/png/512/92/92203.png",
+        },
+        {
+          id: 5,
+          name: "Manicure analogowo-cyfrowy",
+          area: "ręce",
+          time: 45,
+          price: 150,
+          image: "https://image.flaticon.com/icons/png/512/17/17787.png",
+        },
+        {
+          id: 6,
+          name: "Kąpiel w gorącej kawie",
+          area: "całe ciało",
+          time: 60,
+          price: 200,
+          image: "https://image.flaticon.com/icons/png/512/112/112407.png",
+        },
+        {
+          id: 7,
+          name: "Depilacja dyskiem twardym",
+          area: "całe ciało",
+          time: 45,
+          price: 120,
+          image: "https://image.flaticon.com/icons/png/512/33/33272.png",
+        },
+      ];
+
+$(document).ready(function () {
+      const startDate2 = $('.treatDate');
+      for (let i=0; i < startDate2.length; i++){
+        console.log("startDate2:", startDate2);
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+        if(dd<10){
+            dd='0'+dd
+        }; 
+        if(mm<10){
+            mm='0'+mm
+        };
+      today = yyyy+'-'+mm+'-'+dd; 
+      startDate2.attr("min",today);
+      console.log("start date", startDate2);
+  }
 
 
-/* 
-<div class="row justify-content-center" id="heightTreat">
-          
-                <div class="card shadow smview lgview" style="width: 16rem">
-                    <div class="inner">
-                        <img class="card-img-top" src="https://image.flaticon.com/icons/png/512/102/102630.png" id= "img1"  alt="Card image cap"> </a>
-                    </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Masaż rozgrzanym monitorem</h5>
-                            <p class="card-text"> </p>
-                        </div>
-                    <div> 
-                        <div>
-                            <label for="start"> Planowana data zabiegu:</label>
-                                <input type="date" id="inputDate1" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
-                                <input type="time" id="inputTime1" value="--:--" max="21:00" min="08:00">
-                        </div>
-                        <div id="showTime">
-                            <button type="submit"> Zarezerwuj </button>
-                        </div>
-                    </div>
-                </div>
 
-                <div class="card shadow smview lgview" style="width: 16rem;">
-                <div class="inner">
-                    <a href="#info2" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/103/103436.png" id= "img1"  alt="Card image cap"> </a>
-                </div>
-                    <div class="card-body">
-                        <h5 class="card-title"> Biczowanie kablem od myszy</h5>
-                        <p class="card-text"> </p>
-                    </div>
-                </div>
+        const allButtons = document.querySelectorAll(".add-to-card2");
+        for (let i = 0; i < allButtons.length; i++) {
+          console.log("loop");
+          allButtons[i].addEventListener("click", (item) => {
+            console.log("Dodano do koszyka ");
+            console.log("wybrany produkt to:", treatmentsItem[i]);
 
-                <div class="card shadow smview lgview" style="width: 16rem;">
-                    <div class="inner">
-                        <a href="#info3" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/114/114668.png" id= "img1"  alt="Card image cap"> </a>
-                    </div>
-                        <div class="card-body">
-                            <h5 class="card-title">Peeling odłamkami płyty CD</h5>
-                            <p class="card-text"> </p>
-                        </div>
-                </div>
-                
-                <div class="card shadow smview lgview" style="width: 16rem;">
-                    <div class="inner">
-                        <a href="#info4" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/92/92203.png" id= "img1"  alt="Card image cap"> </a>
-                    </div>
-                        <div class="card-body">
-                            <h5 class="card-title"> Pedicure woskiem z USB</h5>
-                            <p class="card-text"> </p>
-                        </div>
-                </div>
+            console.log(treatmentsItem[i].name);
+            console.log(treatmentsItem[i].price);
+            console.log(treatmentsItem[i].area);
 
-                <div class="card shadow smview lgview" style="width: 16rem;">
-                    <div class="inner">
-                        <a href="#info5" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/17/17787.png" id= "img1"  alt="Card image cap"> </a>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title"> Manicure analogowo-cyfrowy</h5>
-                        <p class="card-text"> </p>
-                    </div>
-                </div>
+            const item ={};
+            item.name = treatmentsItem[i].name;
+            item.area = treatmentsItem[i].area;
+            item.price = treatmentsItem[i].price;
+            item.time = treatmentsItem[i].time;
+            item.image = treatmentsItem[i].image;
+            console.log(item);
 
-                
-                <div class="card shadow smview lgview" style="width: 16rem;">
-                <div class="inner">
-                    <a href="#info6" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/112/112407.png" id= "img1"  alt="Card image cap"> </a>
-                </div>
-                    <div class="card-body">
-                        <h5 class="card-title"> Kąpiel w gorącej kawie</h5>
-                        <p class="card-text"> </p>
-                    </div>
-                </div>
-                <div class="card shadow smview lgview" style="width: 16rem;">
-                <div class="inner">
-                    <a href="#info7" ><img class="card-img-top" src="https://image.flaticon.com/icons/png/512/33/33272.png" id= "img1"  alt="Card image cap"> </a>
-                </div>
-                    <div class="card-body">
-                        <h5 class="card-title"> Depilacja dyskiem twardym</h5>
-                        <p class="card-text"> </p>
-                    </div>
-                </div>
+/*             
+            const dateTreat = document.querySelectorAll('.inputDate1');
+            const timeTreat = document.querySelectorAll('.inputTime1');
+
+            for (let v=0; v < dateTreat.length; v++) {
+            const checdateOfTreat = dateTreat[i].value;
+            item2.dateTreat =checdateOfTreat;
+            console.log("produkt new:", item);
+            }
+           
+
+            console.log("data zabiegu:" + checdateOfTreat);
+
+            if (dateTreat == "" || timeTreat == "") {
+                alert('Wprowadź dane zabiegu');
+              return;
+            } else {
+                alert("Zarezerwowano!");
+            }
  */
 
+          });
 
-
-// wcześniejsze 
-   /*
-   $(document).ready(function (){
-    const massage = $('<button id="massage" type="submit"> Zarezerwuj </button>');
-    massage.on('click', getInputValue);
-    function getInputValue(){
-        var inputVal = document.getElementById("inputDate1").value;
-        alert(inputVal);
-    }
-    });
-*/
-   
-   /*
-   document.addEventListener('DOMContentLoaded', function() {
-    const massagebtn = document.getElementById(massagebtn);
-    massagebtn.onclick = getInputValue;
-    function getInputValue(){
-        var inputVal = document.getElementById("inputDate1").value;
-        alert(inputVal);
-    }
-    });
-    */
-/*
-    const buttons = document.querySelectorAll('button');
-    buttons.forEach(function(button) {
-        button.onclick = getInputValue;
-        function getInputValue(){
-            var inputVal = document.getElementById("inputDate1").value;
-            alert(inputVal);
-        }
-      });
-      */
-
-
- /*      const buttons = document.querySelectorAll('button');
-        for (let i = 0; i < buttons.length; i++) {
-            buttons[i].onclick = getInputValue;
-            function getInputValue(e){
-              e.preventDefault();
-                var inputVal = document.getElementById("inputDate1").value;
-                console.log(inputVal);
-            }
-        } */
- 
-    
-  /* fetch("http://localhost:3000/treatments").then(response => {
-      console.log(response);
-      return response.json();
-    }).then(data => {
-        console.log(data);
-        const output = '<h2> Wyniki </h2>'
-        data.forEach(function(treat){
-            output += `
-            <ul>
-              <li> usługa: ${treat.name}</li>
-              <li> część ciała: ${treat.area}</li>
-              <li> czas: ${treat.time}</li>
-              <li> cena: ${treat.price}</li>
-            </ul>
-            `
-        });
-        document.getElementById('output').innerHTML = output;
-    });  */
+}})
