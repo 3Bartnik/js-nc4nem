@@ -12,7 +12,7 @@ export const rooms = () => {
         </div>
     <div class="row justify-content-center">
     `);
-  const divR1 = $('<div class="containerR d-flex "></div>');
+  const divR1 = $('<div class="containerR d-flex justify-content-center "> </div>');
 
 
   const container1 = $(`

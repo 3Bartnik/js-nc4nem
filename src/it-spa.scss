@@ -139,6 +139,9 @@ p.text-muted {
     height: 30%;
     
 }
+.containerR {
+  flex-wrap: wrap;
+}
 
 .card {
     margin: 10px;
@@ -241,6 +244,7 @@ height: 100vh;
 
 .card-text {
     position:relative;
+    text-align: center;
     //bottom: 150px;
 }
 .btn-hide {

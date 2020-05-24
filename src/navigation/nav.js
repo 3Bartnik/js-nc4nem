@@ -31,7 +31,7 @@ export const nav = () => {
           </div>
           <div class="cart-buttons-container mt-3 d-flex justify-content-between">
             <a href="#" id="clear-cart" class="btn btn-outline-secondary btn-black text-uppercase">Wyczyść</a>
-            <a href="#" class="btn btn-outline-secondary text-uppercase">Zarezerwuj</a>
+            <a href="#" class="btn btn-outline-secondary text-uppercase">Potwierdź </a>
           </div>
         </div>
     `)

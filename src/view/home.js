@@ -47,8 +47,11 @@ export const home =() => {
                                 <img class="img-fluid" id="szef" src="https://image.freepik.com/darmowe-zdjecie/usmiechniety-ufny-bizneswoman-pozuje-z-rekami-skladac_1262-20950.jpg" alt="" />
                             </div>
                         </div>
-                        <p class="lead">Jeżeli szukasz standardowej oferty zabiegów, niestety musimy Cię zmartwić. U nas jej nie doświadczysz. </p>
-                        <p class="lead"> Zerknij proszę na naszą ofertę, gdyż może któraś z opcji Cię zaintryguje i zapragniesz jej doświadczyć osobiście. </p>
+
+                    </div>
+                    <div class= "col-sm-6">
+                            <p class="lead">Jeżeli szukasz standardowej oferty zabiegów, niestety musimy Cię zmartwić. U nas jej nie doświadczysz. </p>
+                            <p class="lead"> Zerknij proszę na naszą ofertę, gdyż może któraś z opcji Cię zaintryguje i zapragniesz jej doświadczyć osobiście. </p>
                     </div>
                 </div>
             </div>
