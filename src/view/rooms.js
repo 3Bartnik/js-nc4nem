@@ -32,11 +32,11 @@ export const rooms = () => {
     `); */
 
     const label1 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="2020-05-22" onfocus="blur()" max="2021-05-05" required> `);
+                <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="${getDate(0)}" onfocus="blur()" max="${getDate(365)}" required> `);
 
     container1.append(label1);
     const label2=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate2" class="checkoutDate" value="dd.mm.rrrr" onfocus="blur()" min="2020-05-27" required>`);
+                <input type="date" id="inputDate2" class="checkoutDate" value="dd.mm.rrrr" onfocus="blur()" min="${getDate(1)}" max="${getDate(365)}" required>`);
     container1.append(label2);
 
     const btn1 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -547,4 +547,21 @@ for (let i=0; i < startDate.length; i++){
   };
 
 });
+function getDate(days) {
+  var date = new Date();
+  date.setDate(date.getDate() + days);
+    
+  var dd = date.getDate();
+  var mm = date.getMonth()+1; //January is 0!
+  var yyyy = date.getFullYear();
+  
+  if(dd<10){
+    dd='0'+dd
+  }; 
+  if(mm<10){
+    mm='0'+mm
+  };
+    
+  return yyyy+'-'+mm+'-'+dd; 
+}
  
