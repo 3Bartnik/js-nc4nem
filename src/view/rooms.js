@@ -51,7 +51,7 @@ export const rooms = () => {
         alert('Wprowadź daty');
         return;
     } else {
-      alert("Zarezerwowano!");
+     /*  alert("Zarezerwowano!"); */
 
       }
     });
@@ -97,7 +97,7 @@ export const rooms = () => {
         alert('Wprowadź daty');
         return;
     } else {
-      alert("Zarezerwowano!");
+      /* alert("Zarezerwowano!"); */
       }
     });
     container2.append(btn2);
@@ -138,7 +138,7 @@ export const rooms = () => {
         alert('Wprowadź daty');
         return;
     } else {
-      alert("Zarezerwowano!");
+     /*  alert("Zarezerwowano!"); */
       }
     });
     container3.append(btn3);
@@ -178,7 +178,7 @@ export const rooms = () => {
         alert('Wprowadź daty');
         return;
     } else {
-      alert("Zarezerwowano!");
+      /* alert("Zarezerwowano!"); */
       }
     });
     container4.append(btn4);
@@ -289,11 +289,12 @@ const shoppingCart = new Cart();
 console.log(shoppingCart);
 
 $(document).ready(function () {
-  
-   
+  // min czas przyjazdu
   const startDate = $('.checkinDate');
-  for (let i=0; i < startDate.length; i++){
-    console.log("startDate:", startDate);
+  startDate.each(function(){
+
+  /* for (let i=0; i < startDate.length; i++){
+    console.log("startDate:", startDate);  */
       var today = new Date();
       var dd = today.getDate();
       var mm = today.getMonth()+1; //January is 0!
@@ -305,9 +306,64 @@ $(document).ready(function () {
             mm='0'+mm
         };
       today = yyyy+'-'+mm+'-'+dd; 
+        //startDate.attr("min",today);
         startDate.attr("min",today);
-      console.log("start date", startDate);
-  }
+      console.log("startDate", startDate);
+  });
+
+  //min czas wyjazdu
+     const checkoutDates = $('.checkoutDate');
+//const checkoutDates = document.getElementsByClassName('checkoutDate');
+      for (let i=0; i < checkoutDates.length; i++){
+      const checkoutDate = checkoutDates[i];
+      var today = new Date();
+      var dd = today.getDate()+1;
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+       if(dd<10){
+            dd='0'+dd
+        }; 
+        if(mm<10){
+            mm='0'+mm
+        };
+      today = yyyy+'-'+mm+'-'+dd; 
+      //yearLater =yyyy+'-'+mm2+'-'+dd; 
+      checkoutDates.attr("min",today);
+       //checkoutDates.attr("max",today+2);
+};
+// max czas  wyjazdu
+const checkoutDates = $('.checkoutDate');
+for (let i=0; i < checkoutDates.length; i++){
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear()+1;
+       if(dd<10){
+            dd='0'+dd
+        }; 
+        if(mm<10){
+            mm='0'+mm
+        };
+      today = yyyy+'-'+mm+'-'+dd; 
+      checkoutDates.attr("max",today);
+}
+//max czas przyjazdu
+const startDate = $('.checkinDate')
+for (let i=0; i < startDate.length; i++){
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear()+1;
+       if(dd<10){
+            dd='0'+dd
+        }; 
+        if(mm<10){
+            mm='0'+mm
+        };
+      today = yyyy+'-'+mm+'-'+dd; 
+      startDate.attr("max",today);
+}
+
 
 
 
