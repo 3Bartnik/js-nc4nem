@@ -43,7 +43,7 @@ export const treatments =() => {
                     </div>
                     <div class="reservation">
                         <label for="start"> Planowana data zabiegu:</label>
-                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" required>
+                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" onfocus="blur()"  required>
                           <input type="time" id="treatTime" class="treatTime" value="--:--" max="21:00" min="08:00">
                     </div>
                     <button type="submit" class="btn btn-secondary add-to-card2"> Zarezerwuj </button>

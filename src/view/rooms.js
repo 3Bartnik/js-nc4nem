@@ -32,11 +32,11 @@ export const rooms = () => {
     `); */
 
     const label1 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" required> `);
+                <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="2020-05-22" onfocus="blur()" max="2021-05-05" required> `);
 
     container1.append(label1);
     const label2=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate2" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" required>`);
+                <input type="date" id="inputDate2" class="checkoutDate" value="dd.mm.rrrr" onfocus="blur()" min="2020-05-27" required>`);
     container1.append(label2);
 
     const btn1 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -80,10 +80,10 @@ export const rooms = () => {
     `); */
 
     const label3 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate3" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate3" class="checkinDate" value="dd.mm.rrrr" onfocus="blur()" min="2020-05-22" max="2021-05-05" requred> `);
     container2.append(label3);
     const label4=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate4" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="inputDate4" class="checkoutDate" value="dd.mm.rrrr"  onfocus="blur()" min="2020-05-27" requred>`);
     container2.append(label4);
 
     const btn2 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -121,10 +121,10 @@ export const rooms = () => {
     `); */
 
     const label5 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate5" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate5" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05"  onfocus="blur()" requred> `);
     container3.append(label5);
     const label6=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate6" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="inputDate6" class="checkoutDate" value="dd.mm.rrrr" onfocus="blur()" min="2020-05-27" requred>`);
     container3.append(label6);
 
     const btn3 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
@@ -161,10 +161,10 @@ export const rooms = () => {
     `); */
 
     const label7 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate7" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05" requred> `);
+                <input type="date" id="inputDate7" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05"  onfocus="blur()" requred> `);
     container4.append(label7);
     const label8 =$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate8" class="checkoutDate" value="dd.mm.rrrr" min="2020-05-27" requred>`);
+                <input type="date" id="inputDate8" class="checkoutDate" value="dd.mm.rrrr"  onfocus="blur()" min="2020-05-27" requred>`);
     container4.append(label8);
 
     const btn4 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);

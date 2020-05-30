@@ -373,3 +373,7 @@ list-style-type: none;
   justify-content: center;
 }
 
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    -webkit-appearance: none;
+}
