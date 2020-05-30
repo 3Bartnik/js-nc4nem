@@ -22,7 +22,6 @@ export const treatments =() => {
       return response.json();
     }).then(data => {
         console.log(data);
-        console.log(data.image);
         const output = '<div > </div>'
         data.forEach(function(treat){
 
@@ -43,20 +42,19 @@ export const treatments =() => {
                     </div>
                     <div class="reservation">
                         <label for="start"> Planowana data zabiegu:</label>
-                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="${getDate(0)}" max="${getDate(365)}" onfocus="blur()"  required>
-                          <input type="time" id="treatTime" class="treatTime" value="--:--" max="21:00" min="08:00">
+                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="${getDate(0)}" max="${getDate(365)}" onfocus="blur()"  required />
+                          <input type="time" id="treatTime" class="treatTime" value="--:--" max="21:00" min="08:00"/>
                     </div>
-                    <button type="submit" class="btn btn-secondary add-to-card2"> Zarezerwuj </button>
+                    <button type="submit" class="btn btn-secondary add-to-card2" > Zarezerwuj </button>
                 </div>
         `});
     document.getElementById('output').innerHTML = output;
-    const button =$(`<button type="submit"> Zarezerwuj </button>`)              
+    //const button =$(`<button type="submit"> Zarezerwuj </button>`)              
     }); 
  
     fragment.append(containerTreatment);
     return fragment;
 };
-console.log(shoppingCart);
 
 let treatmentsItem = [
         {
@@ -117,8 +115,8 @@ let treatmentsItem = [
         },
       ];
 
-$(document).ready(function () {
-      const startDate2 = $('.treatDate');
+/* $(document).ready(function () {
+            const startDate2 = $('.treatDate');
       for (let i=0; i < startDate2.length; i++){
         console.log("startDate2:", startDate2);
       const today = new Date();
@@ -134,11 +132,7 @@ $(document).ready(function () {
       today = yyyy+'-'+mm+'-'+dd; 
       startDate2.attr("min",today);
       console.log("start date", startDate2);
-
- /*      today.setFullYear(2021);
-      startDate2.attr("max",today); */
-  }
-
+      } 
 
 
         const allButtons = document.querySelectorAll(".add-to-card2");
@@ -160,30 +154,10 @@ $(document).ready(function () {
             item.image = treatmentsItem[i].image;
             console.log(item);
 
-/*             
-            const dateTreat = document.querySelectorAll('.inputDate1');
-            const timeTreat = document.querySelectorAll('.inputTime1');
-
-            for (let v=0; v < dateTreat.length; v++) {
-            const checdateOfTreat = dateTreat[i].value;
-            item2.dateTreat =checdateOfTreat;
-            console.log("produkt new:", item);
-            }
-           
-
-            console.log("data zabiegu:" + checdateOfTreat);
-
-            if (dateTreat == "" || timeTreat == "") {
-                alert('Wprowadź dane zabiegu');
-              return;
-            } else {
-                alert("Zarezerwowano!");
-            }
- */
-
           });
 
-}})
+      }
+}) */
 function getDate(days) {
   var date = new Date();
   date.setDate(date.getDate() + days);
@@ -200,5 +174,27 @@ function getDate(days) {
   };
     
   return yyyy+'-'+mm+'-'+dd; 
-}
- 
+};
+
+
+const allButtons = document.querySelectorAll(".add-to-card");
+        for (let i = 0; i < allButtons.length; i++) {
+          console.log("loop");
+          allButtons[i].addEventListener("click", (item) => {
+            console.log("Dodano do koszyka ");
+            console.log("wybrany produkt to:", treatmentsItem[i]);
+
+            console.log(treatmentsItem[i].name);
+            console.log(treatmentsItem[i].price);
+            console.log(treatmentsItem[i].area);
+
+            const item ={};
+            item.name = treatmentsItem[i].name;
+            item.area = treatmentsItem[i].area;
+            item.price = treatmentsItem[i].price;
+            item.time = treatmentsItem[i].time;
+            item.image = treatmentsItem[i].image;
+            console.log(item);
+            console.log('data zabiegu ',item.name )
+          });
+        }

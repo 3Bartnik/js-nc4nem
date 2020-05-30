@@ -3,244 +3,54 @@ import {Cart} from '../cart/cart';
 
 export const rooms = () => {
   const fragment = $(new DocumentFragment());
-  const containerInfoRoom = $(`
-    <div class="container-fluid"> 
-        <div class="row justify-content-center">
-            <div class="col-6 header">
-                <h1 class="display-4 headerPZ">Zapoznaj się z ofertą dostępnych pokojów</h1>
+  const containerRooms= $(`
+        <div class="container-fluid"> 
+            <div class="row justify-content-center">
+                <div class="col-6 col-sm-12 col-xs-12 header">
+                    <h1 class="headerPZ display-4">Zapoznaj się z ofertą dostępnych pokojów</h1>
+                </div>
             </div>
+            
+            <section id="output" class="row justify-content-center heightTreat">
+            </section>
         </div>
-    <div class="row justify-content-center">
     `);
-  const divR1 = $('<div class="containerR d-flex justify-content-center "> </div>');
+   
+    fetch("http://localhost:3000/rooms").then(response => {
+      console.log(response);
+      return response.json();
+    }).then(data => {
+        console.log(data);
+        const output = '<div > </div>'
+        data.forEach(function(room){
+            output += `
+                <div class="card shadow smview lgview" style="width: 16rem">
+                        <img class="card-img-top" src="${room.image}" id= "img1" height="169px" alt="Card image cap" />
+                    <div class="card-body">
+                            <h5 class="card-title"> ${room.name}</h5>
+                            <p class="card-text"> 
+                              <ul class="treat-info">
+                                <li> Ilość łożek: ${room.beds}</li>
+                                <li> Ilość gości: ${room.guests} min</li>
+                                <li> Cena : ${room.price},00 zł</li>
+                              </ul>
+                            </p>
+                    </div>
+                    <div class="reservation">
+                        <label for="start"> Planowana data przyjazdu:</label>
+                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="${getDate(0)}" max="${getDate(365)}" onfocus="blur()"  required>
+                          <label for="end"> Planowana data wyjazdu:</label>
+                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="${getDate(1)}" max="${getDate(365)}" onfocus="blur()"  required>
+                    </div>
+                    <button type="submit" class="btn btn-secondary add-to-card" onclick=""> Zarezerwuj </button>
+                </div>
+              `});
 
-
-  const container1 = $(`
-    <div class="card" style="width: 18rem;">
-        <img src="https://cdn.pixabay.com/photo/2016/11/19/13/06/bed-1839183__480.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Pokój jednoosobowy</h5>
-            <p class="card-text"> Ilość łóżek: 1 <br> Ilość gości: 1  <br> Cena: 170,00 PLN</p>
-        </div>
-    </div>
-    `);
-/*     const card_body =$(`
-        <div class="card-body">
-            <h5 class="card-title">Pokój jednoosobowy</h5>
-            <p class="card-text"> Ilość łóżek: ${bedR1} <br> Ilość gości: ${guestR1}  <br> Cena: ${priceR1}</p>
-        </div>
-    `); */
-
-    const label1 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" class="checkinDate" id="inputDate1" value="dd.mm.rrrr" min="${getDate(0)}" onfocus="blur()" max="${getDate(365)}" required> `);
-
-    container1.append(label1);
-    const label2=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate2" class="checkoutDate" value="dd.mm.rrrr" onfocus="blur()" min="${getDate(1)}" max="${getDate(365)}" required>`);
-    container1.append(label2);
-
-    const btn1 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
-    
-    btn1.on("click", function() {
-      
-      const checkin= document.getElementById('inputDate1').value;
-      const checkout= document.getElementById('inputDate2').value;
-      console.log("Data przyjazdu:" + checkin);
-      console.log("Data wyjazdu:" + checkout);
-    if (checkin == "" || checkout == "") {
-        alert('Wprowadź daty');
-        return;
-    } else {
-     /*  alert("Zarezerwowano!"); */
-
-      }
-    });
-    container1.append(btn1);
-    container1.appendTo(divR1);
-
-
-     fragment.append(containerInfoRoom).append(divR1);
-   // divR1.append(container1)
-    
-
-  const container2 = $(`
-    <div class="card" style="width: 18rem;">
-        <img src="https://image.freepik.com/darmowe-zdjecie/pokoj-hotelowy_23-2148095365.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Pokój dwuosobowy</h5>
-            <p class="card-text"> Ilość łóżek: 1 <br> Ilość gości: 2  <br> Cena: 240,00 PLN</p>
-        </div>
-    </div>
-    `);
-/*     const card_body =$(`
-        <div class="card-body">
-            <h5 class="card-title">Pokój jednoosobowy</h5>
-            <p class="card-text"> Ilość łóżek: ${bedR1} <br> Ilość gości: ${guestR1}  <br> Cena: ${priceR1}</p>
-        </div>
-    `); */
-
-    const label3 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate3" class="checkinDate" value="dd.mm.rrrr" onfocus="blur()" min="2020-05-22" max="2021-05-05" requred> `);
-    container2.append(label3);
-    const label4=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate4" class="checkoutDate" value="dd.mm.rrrr"  onfocus="blur()" min="2020-05-27" requred>`);
-    container2.append(label4);
-
-    const btn2 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
-    
-    btn2.on("click", function() {
-      const checkin= document.getElementById('inputDate3').value;
-      const checkout=document.getElementById('inputDate4').value;
-      console.log("Data przyjazdu:" + checkin);
-      console.log("Data przyjazdu:" + checkout);
-    if (checkin == "" || checkout == "") {
-        alert('Wprowadź daty');
-        return;
-    } else {
-      /* alert("Zarezerwowano!"); */
-      }
-    });
-    container2.append(btn2);
-    divR1.append(container2);
-
-
-    const container3 = $(`
-    <div class="card" style="width: 18rem;">
-        <img src="https://image.freepik.com/darmowe-zdjecie/przytulny-apartament-typu-studio-z-sypialnia-i-salonem_1262-12323.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Pokój trzyosobowy</h5>
-            <p class="card-text"> Ilość łóżek: 2 <br> Ilość gości: 3  <br> Cena: 290,00 PLN</p>
-        </div>
-    </div>
-    `);
-/*     const card_body =$(`
-        <div class="card-body">
-            <h5 class="card-title">Pokój jednoosobowy</h5>
-            <p class="card-text"> Ilość łóżek: ${bedR1} <br> Ilość gości: ${guestR1}  <br> Cena: ${priceR1}</p>
-        </div>
-    `); */
-
-    const label5 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate5" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05"  onfocus="blur()" requred> `);
-    container3.append(label5);
-    const label6=$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate6" class="checkoutDate" value="dd.mm.rrrr" onfocus="blur()" min="2020-05-27" requred>`);
-    container3.append(label6);
-
-    const btn3 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
-    
-    btn3.on("click", function() {
-      const checkin= document.getElementById('inputDate5').value;
-      const checkout=document.getElementById('inputDate6').value;
-      console.log("Data przyjazdu:" + checkin);
-      console.log("Data przyjazdu:" + checkout);
-    if (checkin == "" || checkout == "") {
-        alert('Wprowadź daty');
-        return;
-    } else {
-     /*  alert("Zarezerwowano!"); */
-      }
-    });
-    container3.append(btn3);
-    divR1.append(container3);
-
-    const container4 = $(`
-    <div class="card" style="width: 18rem;">
-        <img src="https://image.freepik.com/darmowe-zdjecie/luksusowa-sypialnia-lub-pokoj-hotelowy_180547-919.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Pokój czteroosobowy</h5>
-            <p class="card-text"> Ilość łóżek: 2 <br> Ilość gości: 4  <br> Cena: 340,00 PLN</p>
-        </div>
-    </div>
-    `);
-/*     const card_body =$(`
-        <div class="card-body">
-            <h5 class="card-title">Pokój jednoosobowy</h5>
-            <p class="card-text"> Ilość łóżek: ${bedR1} <br> Ilość gości: ${guestR1}  <br> Cena: ${priceR1}</p>
-        </div>
-    `); */
-
-    const label7 =$(`<label for="start"> Planowana data przyjazdu:</label>
-                <input type="date" id="inputDate7" class="checkinDate" value="dd.mm.rrrr" min="2020-05-22" max="2021-05-05"  onfocus="blur()" requred> `);
-    container4.append(label7);
-    const label8 =$(`<label for="end"> Planowana data wyjazdu:  </label>
-                <input type="date" id="inputDate8" class="checkoutDate" value="dd.mm.rrrr"  onfocus="blur()" min="2020-05-27" requred>`);
-    container4.append(label8);
-
-    const btn4 = $(`<button  type="button" id="btn1" class="btn btn-secondary add-to-card" > Zarezerwuj</button>`);
-    
-    btn4.on("click", function() {
-      const checkin= document.getElementById('inputDate7').value;
-      const checkout= document.getElementById('inputDate8').value;
-      console.log("Data przyjazdu:" + checkin);
-      console.log("Data przyjazdu:" + checkout);
-    if (checkin == "" || checkout == "") {
-        alert('Wprowadź daty');
-        return;
-    } else {
-      /* alert("Zarezerwowano!"); */
-      }
-    });
-    container4.append(btn4);
-    divR1.append(container4);
-
-    const sectionW= $(`<section id="output2"> </section>`);
-    divR1.append(sectionW);
-
-
-//
-
-
-fetch("http://localhost:3000/rooms/").then(response => {
-    console.log(response);
-    return response.json();
-    
-}).then(data => {
-    console.log(data);
-  /*   for (let i=0; i> data.lenght; i++) {
-      data = new Map() ;
-      let pirice1= data.get('price');
-    } *//*  */
-    const price1R= data[0].price;  //170
-    const price2R= data[1].price; //240
-    const price3R= data[2].price;  //290
-    const price4R= data[3].price;//340
-    console.log(price2R);
-    
-    data.forEach(getprice => {
-    const containerElement = document.createElement('div');
-    containerElement.classList.add('containerR');
-    containerElement.classList.add('d-flex');
-    containerElement.classList.add('justify-content-center');
-
-    const cardElement = document.createElement('div');
-    cardElement.classList.add('card');
-
-    containerElement.appendChild(cardElement);
-
-    const cardImageElement = document.createElement('div');
-    cardImageElement.classList.add('card-image')
-
-    cardElement.appendChild(cardImageElement);
-
-    const imageElement = document.createElement('img');
-    const imgR1 = data[0].image;
-    imageElement.src= imgR1;
-    cardElement.appendChild(imageElement);
-
-    
-
-    })
-/*     const guestR1 = data[0].guests;
-    const imgR1 =data[0].image;
-    const priceR1 = data[0].price;
-    const bedR1=data[0].beds;
-    console.log(guestR1);
-    console.log(imgR1);
-    console.log(priceR1);
-    console.log(bedR1); */
-});
-
+          document.getElementById('output').innerHTML = output;
+          const button =$(`<button type="submit"> Zarezerwuj </button>`)              
+    }); 
+ 
+fragment.append(containerRooms);
     return fragment;
 };
 
@@ -289,88 +99,18 @@ const shoppingCart = new Cart();
 console.log(shoppingCart);
 
 $(document).ready(function () {
-  // min czas przyjazdu
-  const startDate = $('.checkinDate');
-  startDate.each(function(){
-
-  /* for (let i=0; i < startDate.length; i++){
-    console.log("startDate:", startDate);  */
-      var today = new Date();
-      var dd = today.getDate();
-      var mm = today.getMonth()+1; //January is 0!
-      var yyyy = today.getFullYear();
-        if(dd<10){
-            dd='0'+dd
-        }; 
-        if(mm<10){
-            mm='0'+mm
-        };
-      today = yyyy+'-'+mm+'-'+dd; 
-        //startDate.attr("min",today);
-        startDate.attr("min",today);
-      console.log("startDate", startDate);
-  });
-
-  //min czas wyjazdu
-     const checkoutDates = $('.checkoutDate');
-//const checkoutDates = document.getElementsByClassName('checkoutDate');
-      for (let i=0; i < checkoutDates.length; i++){
-      const checkoutDate = checkoutDates[i];
-      var today = new Date();
-      var dd = today.getDate()+1;
-      var mm = today.getMonth()+1; //January is 0!
-      var yyyy = today.getFullYear();
-       if(dd<10){
-            dd='0'+dd
-        }; 
-        if(mm<10){
-            mm='0'+mm
-        };
-      today = yyyy+'-'+mm+'-'+dd; 
-      //yearLater =yyyy+'-'+mm2+'-'+dd; 
-      checkoutDates.attr("min",today);
-       //checkoutDates.attr("max",today+2);
-};
-// max czas  wyjazdu
-const checkoutDates = $('.checkoutDate');
-for (let i=0; i < checkoutDates.length; i++){
-      var today = new Date();
-      var dd = today.getDate();
-      var mm = today.getMonth()+1; //January is 0!
-      var yyyy = today.getFullYear()+1;
-       if(dd<10){
-            dd='0'+dd
-        }; 
-        if(mm<10){
-            mm='0'+mm
-        };
-      today = yyyy+'-'+mm+'-'+dd; 
-      checkoutDates.attr("max",today);
-}
-//max czas przyjazdu
-const startDate = $('.checkinDate')
-for (let i=0; i < startDate.length; i++){
-      var today = new Date();
-      var dd = today.getDate();
-      var mm = today.getMonth()+1; //January is 0!
-      var yyyy = today.getFullYear()+1;
-       if(dd<10){
-            dd='0'+dd
-        }; 
-        if(mm<10){
-            mm='0'+mm
-        };
-      today = yyyy+'-'+mm+'-'+dd; 
-      startDate.attr("max",today);
-}
-
-
-
 
     const allButtons= document.querySelectorAll('.add-to-card');
     for (let i=0; i < allButtons.length; i++) {
       console.log("loop");
       allButtons[i].addEventListener('click', (item)=> {
+      if (checkin == "" || checkout == "") {
+        alert('Wprowadź daty');
+        return;
+    } else {
+     /*  alert("Zarezerwowano!"); */
+
+      }
       console.log('Dodano do koszyka ');
       console.log("wybrany produkt to:", products[i]);
 
