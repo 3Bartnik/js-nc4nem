@@ -2,7 +2,6 @@ import $ from 'jquery';
 import {shoppingCart, Cart} from '../cart/cart';
 
 export const treatments =() => {
-    //tworzenie kontenera na dane, który renderuje się całościowo na koniec, nie obciąża to przeglądarki
     const fragment = $(new DocumentFragment());
     const containerTreatment= $(`
         <div class="container-fluid"> 
@@ -48,8 +47,7 @@ export const treatments =() => {
                     <button type="submit" class="btn btn-secondary add-to-card2" > Zarezerwuj </button>
                 </div>
         `});
-    document.getElementById('output').innerHTML = output;
-    //const button =$(`<button type="submit"> Zarezerwuj </button>`)              
+    document.getElementById('output').innerHTML = output;         
     }); 
  
     fragment.append(containerTreatment);
@@ -116,25 +114,6 @@ let treatmentsItem = [
       ];
 
 /* $(document).ready(function () {
-            const startDate2 = $('.treatDate');
-      for (let i=0; i < startDate2.length; i++){
-        console.log("startDate2:", startDate2);
-      const today = new Date();
-      const dd = today.getDate();
-      const mm = today.getMonth()+1; //January is 0!
-      const yyyy = today.getFullYear();
-        if(dd<10){
-            dd='0'+dd
-        }; 
-        if(mm<10){
-            mm='0'+mm
-        };
-      today = yyyy+'-'+mm+'-'+dd; 
-      startDate2.attr("min",today);
-      console.log("start date", startDate2);
-      } 
-
-
         const allButtons = document.querySelectorAll(".add-to-card2");
         for (let i = 0; i < allButtons.length; i++) {
           console.log("loop");
@@ -153,9 +132,7 @@ let treatmentsItem = [
             item.time = treatmentsItem[i].time;
             item.image = treatmentsItem[i].image;
             console.log(item);
-
           });
-
       }
 }) */
 function getDate(days) {
@@ -172,7 +149,6 @@ function getDate(days) {
   if(mm<10){
     mm='0'+mm
   };
-    
   return yyyy+'-'+mm+'-'+dd; 
 };
 

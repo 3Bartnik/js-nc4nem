@@ -156,25 +156,13 @@ $(document).ready(function () {
               <p id="cart-item-title" class="font-weight-bold mb-0">Produkt: ${item.name}</p>
               <span> Termin przyjazdu: ${item.checkin} <br> Termin wyjazdu: ${item.checkout} <span> <br>
               <span id="cart-item-price" class="cart-item-price" class="mb-0">Cena:  ${item.price} PLN </span>
-          </div>
-
-          `
+          </div>`
 
       const cartBanner = document.getElementById('cart');
       const total = document.querySelector('.cart-total-container');
       cartBanner.insertBefore(cartItem, total )
       alert('Produkt dodany do koszyka');
       showTotal();
-
-
-/*       const item = {
-        name: products[i].name,
-        beds: products[i].beds,
-        guests: products[i].guests,
-        price: products[i].price
-
-      }; */
-      
 
       //cookie
 /*       const myCookies = {};
@@ -189,7 +177,6 @@ $(document).ready(function () {
             document.cookie= cookieString;
           }
       } */
-
 
     console.log ('cookie dla przycisku:',document.cookie);
      const cookies= document.cookie 
@@ -253,18 +240,6 @@ $(document).ready(function () {
 
 
 
-/*    
-    const allInput= document.querySelectorAll('input');
-    allInput.forEach( ()=> {
-      const now = new Date().toISOString();
-      console.log(now);
-      const startDate= now.split('T')[0];
-      allInput.setAttribute("min", `${startDate}`);
-      console.log("start date is:", startDate);
-    })
- */
-
-
     });
     function showTotal(){
       const total = [];
@@ -274,18 +249,8 @@ $(document).ready(function () {
       })
       console.log(total);
     }
-    //ustawienie minimalnej daty min="2020-05-09"
-    /* function setCheckinDate(){
-    const now = new Date().toISOString();
-    const startDate= now.split('T')[0];
-    console.log(startDate);
-    const checkin= document.getElementById('checkinDate');
-    checkin.setAttribute("min", "startDate");
-    }
-    setCheckinDate();  */
 
   };
-
 });
 function getDate(days) {
   var date = new Date();
@@ -301,7 +266,6 @@ function getDate(days) {
   if(mm<10){
     mm='0'+mm
   };
-    
   return yyyy+'-'+mm+'-'+dd; 
 }
  
