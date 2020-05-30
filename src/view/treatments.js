@@ -43,7 +43,7 @@ export const treatments =() => {
                     </div>
                     <div class="reservation">
                         <label for="start"> Planowana data zabiegu:</label>
-                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="2020-04-27" max="2021-04-27" onfocus="blur()"  required>
+                          <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="${getDate(0)}" max="${getDate(365)}" onfocus="blur()"  required>
                           <input type="time" id="treatTime" class="treatTime" value="--:--" max="21:00" min="08:00">
                     </div>
                     <button type="submit" class="btn btn-secondary add-to-card2"> Zarezerwuj </button>
@@ -184,3 +184,21 @@ $(document).ready(function () {
           });
 
 }})
+function getDate(days) {
+  var date = new Date();
+  date.setDate(date.getDate() + days);
+    
+  var dd = date.getDate();
+  var mm = date.getMonth()+1; //January is 0!
+  var yyyy = date.getFullYear();
+  
+  if(dd<10){
+    dd='0'+dd
+  }; 
+  if(mm<10){
+    mm='0'+mm
+  };
+    
+  return yyyy+'-'+mm+'-'+dd; 
+}
+ 
