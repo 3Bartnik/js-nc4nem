@@ -24,8 +24,10 @@ export const rooms = () => {
         const output = '<div > </div>'
         data.forEach(function(room){
             output += `
-                <div class="card shadow smview lgview" style="width: 16rem">
+                <div class="card shadow smview lgview " style="width: 16rem">
+                    <div class="card shadow roomCard">
                         <img class="card-img-top" src="${room.image}" id= "img1" height="169px" alt="Card image cap" />
+                    </div>
                     <div class="card-body">
                             <h5 class="card-title"> ${room.name}</h5>
                             <p class="card-text"> 
@@ -183,7 +185,7 @@ $(document).ready(function () {
       var now = new Date();
       var time = now.getTime();
       var expires = (new Date(Date.now()+ 86400*1000)).toUTCString();
-     cookies = `IT_SPA_CART= ${item}`,"max-age=2600; path=/";
+     cookies = `IT_SPA_CART= ${item}`,"max-age=86400; path=/";
      //cookies = `IT_SPA_CART= ${item}; "max-age=86400; path=/`;  
      //dodaje wybrany pokoj w cookie i loguje do konsoli
       //document.cookie = `IT_SPA_CART= ${itemPrice}`;   //przekazuje cene
