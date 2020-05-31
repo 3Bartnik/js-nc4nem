@@ -31,7 +31,7 @@ export const rooms = () => {
                             <p class="card-text"> 
                               <ul class="treat-info">
                                 <li> Ilość łożek: ${room.beds}</li>
-                                <li> Ilość gości: ${room.guests} min</li>
+                                <li> Ilość gości: ${room.guests} </li>
                                 <li> Cena : ${room.price},00 zł</li>
                               </ul>
                             </p>
