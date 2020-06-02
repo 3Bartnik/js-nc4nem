@@ -26,7 +26,7 @@ export const treatments =() => {
 
             output += `
                 <div class="card shadow smview lgview" style="width: 16rem">
-                    <div class="inner">
+                    <div class="inner roomCard">
                         <img class="card-img-top" src="${treat.image}" id= "img1"  alt="Card image cap" />
                     </div>
                     <div class="card-body">
@@ -34,17 +34,17 @@ export const treatments =() => {
                             <p class="card-text"> 
                               <ul class="treat-info">
                                 <li> Część ciała: ${treat.area}</li>
-                                <li> Czas trwania: ${treat.time} min</li>
-                                <li> Koszt usługi: ${treat.price},00 zł</li>
+                                <li> Czas trwania (min): ${treat.time} </li>
+                                <li> Koszt usługi (PLN): ${treat.price}</li>
                               </ul>
                             </p>
                     </div>
                     <div class="reservation">
                         <label for="start"> Planowana data zabiegu:</label>
                           <input type="date" id="treatDate" class="treatDate" value="dd.mm.rrrr" min="${getDate(0)}" max="${getDate(365)}" onfocus="blur()"  required />
-                          <input type="time" id="treatTime" class="treatTime" value="--:--" max="21:00" min="08:00"/>
+                          <input type="time" id="treatTime" class="treatTime" value="--:--" max="21:00" min="08:00" step="1800" />
                     </div>
-                    <button type="submit" class="btn btn-secondary add-to-card2" > Zarezerwuj </button>
+                    <button type="submit" class="btn btn-secondary add-to-card2" onclick="${addToCart()}"> Zarezerwuj </button>
                 </div>
         `});
     document.getElementById('output').innerHTML = output;         
@@ -153,7 +153,7 @@ function getDate(days) {
 };
 
 
-const allButtons = document.querySelectorAll(".add-to-card");
+/* const allButtons = document.querySelectorAll(".add-to-card");
         for (let i = 0; i < allButtons.length; i++) {
           console.log("loop");
           allButtons[i].addEventListener("click", (item) => {
@@ -173,4 +173,52 @@ const allButtons = document.querySelectorAll(".add-to-card");
             console.log(item);
             console.log('data zabiegu ',item.name )
           });
-        }
+        } */
+        
+function addToCart() {
+        const allButtons = document.querySelectorAll(".add-to-card2");
+        for (let i = 0; i < allButtons.length; i++) {
+          console.log("loop");
+          allButtons[i].addEventListener("click", (item) => {
+            console.log("Dodano do koszyka ");
+            console.log("wybrany produkt to:", treatmentsItem[i]);
+
+            console.log(treatmentsItem[i].name);
+            console.log(treatmentsItem[i].price);
+            console.log(treatmentsItem[i].area);
+
+            const item ={};
+            item.name = treatmentsItem[i].name;
+            item.area = treatmentsItem[i].area;
+            item.price = treatmentsItem[i].price;
+            item.time = treatmentsItem[i].time;
+            item.image = treatmentsItem[i].image;
+            console.log(item);
+          });
+      };
+};
+
+
+const allButtons = document.querySelectorAll(".add-to-card2");
+  allButtons.forEach(function(btn){
+  btn.addEventListener("click",function(event){
+        console.log(event.target);
+    });
+  });
+
+
+
+/* function getStep(seconds){
+
+  const allTreat= document.querySelectorAll(".treatTime");
+  allTreat.forEach((event) =>{
+    
+    const min = event.target.parentElement.previousElementSibling.children[2].children[2].value;
+    console.log(min);
+  //const time =  60 sec x 10 mins = 600 seconds
+  const seconds= 60* min;
+  return seconds;
+  })
+  
+}
+ */
